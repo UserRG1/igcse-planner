@@ -413,6 +413,8 @@ input[type=text]:focus { border-color: var(--b1); }
   .mname { font-size: 11px !important; margin: 0 0 3px !important; }
   .ch   { font-size: 8.5px !important; padding: 2px 0 !important; }
   .cal-col > div { margin-bottom: 8px !important; }
+  /* Hide UI chrome and popup from print */
+  .gep-wrap, .stale-banner, .auth-status, .auth-signin-btn { display: none !important; }
 }
 
 /* ── Mobile responsive ───────────────────────────────────── */
@@ -677,7 +679,3 @@ input[type=text]:focus { border-color: var(--b1); }
   .gep-wrap { right: 12px; bottom: 80px; width: calc(100vw - 24px); }
 }
 
-/* Hide from print */
-@media print {
-  .gep-wrap { display: none !important; }
-}

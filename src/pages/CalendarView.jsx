@@ -156,16 +156,38 @@ export default function CalendarView() {
   function closeExport() { setExportOpen(false); }
 
   function doPdf() {
-    // ── PDF fix: clear selDate first so React removes .sel from DOM ──────
-    // Then double-rAF to guarantee React has committed the update before
-    // the OS print dialog captures the page. No beforeprint/afterprint needed.
-    setSelDate(null);
-    closeExport();
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        window.print();
+    // beforeprint fires synchronously inside the browser's own print rendering
+    // sequence — after window.print() is called but before the browser paints
+    // the print layout. It is NOT in the JS task queue. The print engine is
+    // therefore guaranteed to see a DOM with no .sel class.
+    //
+    // We manipulate the DOM directly (not via React state) because:
+    //   1. React setState is asynchronous — a re-render may not have committed
+    //      by the time beforeprint fires
+    //   2. Direct classList manipulation is synchronous and immediately visible
+    //      to the print pipeline
+    //
+    // {once:true} auto-removes each listener after it fires once, so repeated
+    // exports can never accumulate stale listeners that fire out of order.
+
+    window.addEventListener('beforeprint', () => {
+      // Mark and strip every .sel cell synchronously
+      document.querySelectorAll('.cd.sel').forEach(el => {
+        el.dataset.wasSel = 'true';
+        el.classList.remove('sel');
       });
-    });
+    }, { once: true });
+
+    window.addEventListener('afterprint', () => {
+      // Restore .sel so the UI is unchanged after the dialog closes
+      document.querySelectorAll('.cd[data-was-sel]').forEach(el => {
+        el.classList.add('sel');
+        delete el.dataset.wasSel;
+      });
+    }, { once: true });
+
+    closeExport();
+    window.print();
   }
 
   function doJpg() {
