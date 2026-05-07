@@ -1,98 +1,164 @@
 /**
- * PlannerContext — global state for zone, subjects, events.
+ * PlannerContext — global planner state with tiered storage.
  *
- * Persistence layers (in priority order):
- *   1. Supabase (cloud) — when user is signed in
- *   2. localStorage     — always, as offline fallback
+ * Guest (not signed in):
+ *   → sessionStorage ONLY  (cleared when tab closes = 1 session)
+ *   → 3-hour TTL enforced  (long sessions also expire)
+ *   → localStorage never touched for guests
  *
- * On sign-in:  load Supabase data; if newer than local, adopt it
- * On change:   write localStorage immediately + debounced Supabase sync (1.5s)
+ * Signed in:
+ *   → localStorage immediate backup  (offline fallback)
+ *   → Supabase primary               (cloud, debounced 1.5s)
+ *   → On first sign-in: guest session migrates to localStorage + Supabase
  */
 import { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { supabase, isSupabaseEnabled } from '../lib/supabase.js';
 
-const STORAGE_KEY = 'igcse-planner-v5';
+const LS_KEY      = 'igcse-planner-v5';      // localStorage  — signed-in users
+const SS_KEY      = 'igcse-guest-session';   // sessionStorage — guests
+const TTL_MS      = 3 * 60 * 60 * 1000;     // 3 hours in ms
 
-function loadState() {
-  try {
-    const s = localStorage.getItem(STORAGE_KEY);
-    if (s) return JSON.parse(s);
-  } catch {}
-  return null;
+// ── Storage helpers ─────────────────────────────────────────────────────────
+
+function readLS() {
+  try { const s = localStorage.getItem(LS_KEY); return s ? JSON.parse(s) : null; }
+  catch { return null; }
 }
 
-function saveLocal(state) {
+function readSS() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      ...state,
-      savedAt: new Date().toISOString(),
+    const s = sessionStorage.getItem(SS_KEY);
+    if (!s) return null;
+    const d = JSON.parse(s);
+    // Enforce 3-hour TTL
+    if (d.savedAt && Date.now() - new Date(d.savedAt).getTime() > TTL_MS) {
+      sessionStorage.removeItem(SS_KEY);
+      return null;
+    }
+    return d;
+  } catch { return null; }
+}
+
+function writeLS(state) {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify({
+      ...state, savedAt: new Date().toISOString(),
     }));
   } catch {}
+}
+
+function writeSS(state) {
+  try {
+    sessionStorage.setItem(SS_KEY, JSON.stringify({
+      ...state, savedAt: new Date().toISOString(),
+    }));
+  } catch {}
+}
+
+function clearSS() {
+  try { sessionStorage.removeItem(SS_KEY); } catch {}
 }
 
 /** Merge two event arrays by id — localArr wins on conflicts. */
 function mergeEvents(cloudArr = [], localArr = []) {
   const map = new Map();
   for (const e of cloudArr) map.set(e.id, e);
-  for (const e of localArr)  map.set(e.id, e); // local wins
+  for (const e of localArr)  map.set(e.id, e);
   return [...map.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
+
+/** Load best available initial state — LS first (signed-in users), then SS (guests). */
+function loadInitialState() {
+  return readLS() ?? readSS() ?? null;
+}
+
+// ── Context ──────────────────────────────────────────────────────────────────
 
 const PlannerContext = createContext(null);
 
 export function PlannerProvider({ children }) {
-  const saved = loadState();
+  const initial = loadInitialState();
 
-  const [step,          setStep]          = useState(saved?.step          ?? 0);
-  const [country,       setCountry]       = useState(saved?.country       ?? null);
-  const [zone,          setZone]          = useState(saved?.zone          ?? null);
+  const [step,          setStep]          = useState(initial?.step          ?? 0);
+  const [country,       setCountry]       = useState(initial?.country       ?? null);
+  const [zone,          setZone]          = useState(initial?.zone          ?? null);
   const [selectedCodes, setSelectedCodes] = useState(
-    saved?.selectedCodes ? new Set(saved.selectedCodes) : new Set()
+    initial?.selectedCodes ? new Set(initial.selectedCodes) : new Set()
   );
-  const [events,        setEvents]        = useState(saved?.events        ?? []);
-  const [cloudSynced,   setCloudSynced]   = useState(false);
+  const [events,     setEvents]     = useState(initial?.events     ?? []);
+  const [geoData,    setGeoData]    = useState(null);
+  const [cloudSynced, setCloudSynced] = useState(false);
 
-  const syncTimer = useRef(null);
+  // authUserId is set externally by CloudSync in App.jsx
+  // null = guest, string = signed-in user id
+  const [authUserId, setAuthUserId] = useState(null);
 
-  // ── 1. Save to localStorage on every change ───────────────────────────────
+  const syncTimer   = useRef(null);
+  const prevUserRef = useRef(null);
+
+  // ── Derive serialisable snapshot ─────────────────────────────────────────
+  function snapshot() {
+    return { step, country, zone, selectedCodes: [...selectedCodes], events };
+  }
+
+  // ── Persist on every state change ────────────────────────────────────────
   useEffect(() => {
-    saveLocal({ step, country, zone, selectedCodes: [...selectedCodes], events });
-  }, [step, country, zone, selectedCodes, events]);
+    const snap = snapshot();
+    if (authUserId) {
+      writeLS(snap);    // signed-in: persist to localStorage
+    } else {
+      writeSS(snap);    // guest: sessionStorage only
+    }
+  }, [step, country, zone, selectedCodes, events, authUserId]);
 
-  // ── 2. Load from Supabase when user signs in ──────────────────────────────
-  // We import useAuth lazily via a prop injected from App to avoid circular deps.
-  // Instead, we expose a loadFromCloud() function that App calls after auth.
+  // ── On sign-in: migrate guest sessionStorage → localStorage ──────────────
+  useEffect(() => {
+    if (!authUserId || prevUserRef.current === authUserId) return;
+    prevUserRef.current = authUserId;
 
+    const guestData = readSS();
+    if (guestData) {
+      // Merge guest session into current state (current state may already be
+      // from localStorage if the user was previously signed in on this device)
+      const lsData = readLS();
+      const base   = lsData ?? guestData;
+      // Use whichever is newer
+      const usedGuest = !lsData ||
+        new Date(guestData.savedAt || 0) > new Date(lsData.savedAt || 0);
+      if (usedGuest) {
+        if (guestData.zone)           setZone(guestData.zone);
+        if (guestData.country)        setCountry(guestData.country);
+        if (guestData.selectedCodes)  setSelectedCodes(new Set(guestData.selectedCodes));
+        if (guestData.events?.length) setEvents(prev => mergeEvents(guestData.events, prev));
+      }
+      clearSS(); // guest session migrated — clear it
+    }
+  }, [authUserId]);
+
+  // ── Cloud: load from Supabase on sign-in ─────────────────────────────────
   async function loadFromCloud(userId) {
     if (!isSupabaseEnabled || !userId) return;
     try {
       const { data, error } = await supabase
-        .from('planners')
-        .select('*')
-        .eq('user_id', userId)
-        .single();
+        .from('planners').select('*').eq('user_id', userId).single();
+      if (error || !data) return;
 
-      if (error || !data) return; // no cloud record yet
-
-      // Compare timestamps — use cloud if it's newer than local
       const cloudTs = new Date(data.updated_at).getTime();
-      const localTs = saved?.savedAt ? new Date(saved.savedAt).getTime() : 0;
+      const localTs = new Date(readLS()?.savedAt || 0).getTime();
 
       if (cloudTs > localTs) {
-        if (data.zone      !== undefined) setZone(data.zone);
-        if (data.country   !== undefined) setCountry(data.country);
-        if (data.selected_codes)          setSelectedCodes(new Set(data.selected_codes));
-        if (data.events)                  setEvents(mergeEvents(data.events, events));
-      } else {
-        // Local is newer — but still merge events in case they diverged
-        if (data.events)                  setEvents(mergeEvents(data.events, events));
+        if (data.zone !== undefined)   setZone(data.zone);
+        if (data.country !== undefined) setCountry(data.country);
+        if (data.selected_codes)       setSelectedCodes(new Set(data.selected_codes));
+        if (data.events)               setEvents(prev => mergeEvents(data.events, prev));
+      } else if (data.events) {
+        setEvents(prev => mergeEvents(data.events, prev));
       }
-
       setCloudSynced(true);
     } catch {}
   }
 
-  // ── 3. Debounced save to Supabase ─────────────────────────────────────────
+  // ── Cloud: debounced save to Supabase ─────────────────────────────────────
   async function syncToCloud(userId) {
     if (!isSupabaseEnabled || !userId) return;
     clearTimeout(syncTimer.current);
@@ -100,8 +166,7 @@ export function PlannerProvider({ children }) {
       try {
         await supabase.from('planners').upsert({
           user_id:        userId,
-          zone,
-          country,
+          zone, country,
           selected_codes: [...selectedCodes],
           events,
           updated_at:     new Date().toISOString(),
@@ -117,7 +182,9 @@ export function PlannerProvider({ children }) {
     zone, setZone,
     selectedCodes, setSelectedCodes,
     events, setEvents,
+    geoData, setGeoData,
     cloudSynced,
+    authUserId, setAuthUserId,
     loadFromCloud,
     syncToCloud,
   };

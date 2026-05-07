@@ -5,9 +5,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { loadCountries } from '../utils/timetable.js';
 import { usePlanner } from '../context/PlannerContext.jsx';
+import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
 
 export default function LocationSelect() {
-  const { setCountry, setZone, setStep } = usePlanner();
+  const { setCountry, setZone, setStep, setGeoData } = usePlanner();
 
   const [countries, setCountries]         = useState([]);
   const [detected, setDetected]           = useState(null);   // { name, code, zone }
@@ -29,9 +30,8 @@ export default function LocationSelect() {
       .then(r => r.json())
       .then(data => {
         setDetecting(false);
-        // data.country_code is ISO 2-letter
+        setGeoData(data); // store full payload for profile saving
         if (data?.country_code) {
-          // We'll match after countries load; store the code for now
           setDetected({ code: data.country_code, name: data.country_name });
         }
       })
@@ -86,8 +86,13 @@ export default function LocationSelect() {
     <div className="page vs-page">
       <div className="wrap">
         <div className="vs-hero">
-          <p className="title">IGCSE Exam Planner</p>
-          <p className="vs-tagline">Cambridge M/J 2026 · April – June</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <p className="title">IGCSE Exam Planner</p>
+              <p className="vs-tagline">Cambridge M/J 2026 · April – June</p>
+            </div>
+            <AuthHeaderButton />
+          </div>
         </div>
 
         <p className="vs-prompt">Where are you sitting your exams?</p>

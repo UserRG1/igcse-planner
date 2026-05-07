@@ -1,14 +1,13 @@
 /**
  * Step 2 — Calendar View
- * April–June 2026 three-month grid.
- * Features: add/edit/delete events, two-tap delete, collapsible side panel,
- * weekend tints, fixed 76px cells, export PDF/JPG, mobile FAB + bottom sheet.
  */
 import { useState, useEffect, useRef } from 'react';
 import { dateKey, fmtDateLong, fmtDateShort, ZONE_INFO } from '../utils/timetable.js';
 import { drawCalendarToCanvas } from '../utils/jpgExport.js';
 import { usePlanner } from '../context/PlannerContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
+import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
+import GuestExpiryPopup from '../components/GuestExpiryPopup.jsx';
 
 const MONTHS = [
   { y: 2026, m: 3, name: 'April 2026', id: 'c-apr' },
@@ -16,12 +15,19 @@ const MONTHS = [
   { y: 2026, m: 5, name: 'June 2026',  id: 'c-jun' },
 ];
 const DAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-
-const STALE_DAYS = 5; // warn after 5 days
+const STALE_DAYS = 5;
 
 export default function CalendarView() {
   const { zone, events, setEvents, setStep, cloudSynced } = usePlanner();
-  const { user, openAuth, signOut, isSupabaseEnabled }    = useAuth();
+  const { user, openAuth, isSupabaseEnabled, pendingExport, clearPendingExport } = useAuth();
+
+  // After Google OAuth redirect, auto-open export if that's what triggered sign-in
+  useEffect(() => {
+    if (pendingExport && user) {
+      clearPendingExport();
+      openExport();
+    }
+  }, [pendingExport, user]);
 
   const [selDate,    setSelDate]    = useState(null);
   const [panelOpen,  setPanelOpen]  = useState(true);
@@ -38,7 +44,6 @@ export default function CalendarView() {
   const [fDur,  setFDur]  = useState('');
   const [fNote, setFNote] = useState('');
 
-  // Auth prompt state
   const [staleBanner,      setStaleBanner]      = useState(false);
   const [eventsPromptDone, setEventsPromptDone] = useState(false);
 
@@ -47,12 +52,12 @@ export default function CalendarView() {
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    const fn = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', fn);
+    return () => window.removeEventListener('resize', fn);
   }, []);
 
-  // Stale-data warning: show if localStorage data is >STALE_DAYS old and not signed in
+  // Stale-data warning
   useEffect(() => {
     if (user || !isSupabaseEnabled) return;
     try {
@@ -63,7 +68,7 @@ export default function CalendarView() {
     } catch {}
   }, [user, isSupabaseEnabled]);
 
-  // Events prompt: trigger once when manual events reach 3
+  // Events prompt: once at 3 manual events
   const manualEvents = events.filter(e => e.source !== 'timetable');
   useEffect(() => {
     if (user || !isSupabaseEnabled || eventsPromptDone) return;
@@ -73,27 +78,10 @@ export default function CalendarView() {
     }
   }, [manualEvents.length, user, isSupabaseEnabled, eventsPromptDone]);
 
-  // PDF: beforeprint strips .sel, afterprint restores
-  useEffect(() => {
-    const before = () => {
-      document.querySelectorAll('.cd.sel').forEach(el => {
-        el.dataset.wasSel = 'true';
-        el.classList.remove('sel');
-      });
-    };
-    const after = () => {
-      document.querySelectorAll('.cd[data-was-sel]').forEach(el => {
-        el.classList.add('sel');
-        delete el.dataset.wasSel;
-      });
-    };
-    window.addEventListener('beforeprint', before);
-    window.addEventListener('afterprint', after);
-    return () => {
-      window.removeEventListener('beforeprint', before);
-      window.removeEventListener('afterprint', after);
-    };
-  }, []);
+  // ── NO beforeprint/afterprint handlers ───────────────────────────────────
+  // PDF fix: selDate is cleared before printing so React removes .sel from
+  // the DOM before the print dialog opens. DOM manipulation fought React's
+  // render cycle and caused the highlighted-cell bug.
 
   function pickDate(k) {
     setSelDate(k);
@@ -110,30 +98,20 @@ export default function CalendarView() {
   }
 
   function cancelEdit() {
-    setSelDate(null);
-    setEditId(null);
-    setPendDel(null);
+    setSelDate(null); setEditId(null); setPendDel(null);
     clearTimeout(pendTimer.current);
     clearForm();
     if (isMobile) setSheetOpen(false);
   }
 
   function saveEv() {
-    if (!selDate || !fSubj.trim()) {
-      subjRef.current?.focus();
-      return;
-    }
+    if (!selDate || !fSubj.trim()) { subjRef.current?.focus(); return; }
     const ev = {
       id:       editId || String(Date.now()),
-      date:     selDate,
-      type:     curType,
-      subject:  fSubj.trim(),
-      time:     fTime.trim(),
-      duration: fDur.trim(),
-      note:     fNote.trim(),
-      source:   editId
-        ? (events.find(e => e.id === editId)?.source || 'manual')
-        : 'manual',
+      date:     selDate, type: curType,
+      subject:  fSubj.trim(), time: fTime.trim(),
+      duration: fDur.trim(),  note: fNote.trim(),
+      source:   editId ? (events.find(e => e.id === editId)?.source || 'manual') : 'manual',
     };
     setEvents(prev => editId ? prev.map(e => e.id === editId ? ev : e) : [...prev, ev]);
     clearForm();
@@ -143,13 +121,9 @@ export default function CalendarView() {
   function startEdit(id) {
     const ev = events.find(e => e.id === id);
     if (!ev) return;
-    setEditId(id);
-    setSelDate(ev.date);
-    setCurType(ev.type);
-    setFSubj(ev.subject);
-    setFTime(ev.time     || '');
-    setFDur(ev.duration  || '');
-    setFNote(ev.note     || '');
+    setEditId(id); setSelDate(ev.date); setCurType(ev.type);
+    setFSubj(ev.subject); setFTime(ev.time || '');
+    setFDur(ev.duration || ''); setFNote(ev.note || '');
     if (isMobile) setSheetOpen(true);
     else if (!panelOpen) setPanelOpen(true);
     setTimeout(() => subjRef.current?.focus(), 80);
@@ -168,25 +142,30 @@ export default function CalendarView() {
     }
   }
 
-  // Export — prompt sign-in first if not signed in (skip always allowed)
+  // Export — MANDATORY sign-in if Supabase is enabled
   function handleExportClick() {
     if (!user && isSupabaseEnabled) {
-      openAuth('export', {
-        onSuccess: openExport,
-        onSkip:    openExport,  // always let them export even without signing in
-      });
+      openAuth('export', { onSuccess: openExport });
+      // No onSkip — export is gated on sign-in
     } else {
       openExport();
     }
   }
 
-  function openExport()  { setExportOpen(true); setExportMsg(''); }
+  function openExport()  { setExportOpen(true);  setExportMsg(''); }
   function closeExport() { setExportOpen(false); }
 
   function doPdf() {
-    setExportMsg('Opening print dialog…');
+    // ── PDF fix: clear selDate first so React removes .sel from DOM ──────
+    // Then double-rAF to guarantee React has committed the update before
+    // the OS print dialog captures the page. No beforeprint/afterprint needed.
+    setSelDate(null);
     closeExport();
-    setTimeout(() => window.print(), 150);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.print();
+      });
+    });
   }
 
   function doJpg() {
@@ -224,8 +203,7 @@ export default function CalendarView() {
         <p className="dsel">
           {selDate
             ? fmtDateLong(selDate) + (editId ? ' — editing' : '')
-            : 'Tap a day to add →'
-          }
+            : 'Tap a day to add →'}
         </p>
         <label className="fl">Type</label>
         <div className="trow">
@@ -233,14 +211,10 @@ export default function CalendarView() {
           <button className={`tt${curType === 'study' ? ' as' : ''}`} onClick={() => setCurType('study')}>Study</button>
         </div>
         <label className="fl">Subject / title</label>
-        <input
-          ref={subjRef}
-          type="text"
-          value={fSubj}
+        <input ref={subjRef} type="text" value={fSubj}
           onChange={e => setFSubj(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && saveEv()}
-          placeholder="e.g. Physics Paper 4"
-        />
+          placeholder="e.g. Physics Paper 4" />
         {curType === 'exam' ? (
           <>
             <label className="fl">Session</label>
@@ -270,15 +244,9 @@ export default function CalendarView() {
               </span>
             )}
           </div>
-          <button
-            className="ev-toggle"
-            onClick={() => setEvListOpen(o => !o)}
-            title={evListOpen ? 'Collapse' : 'Expand'}
-            aria-expanded={evListOpen}
-          >
-            <span className="ev-toggle-arr" style={{ transform: evListOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-              ▾
-            </span>
+          <button className="ev-toggle" onClick={() => setEvListOpen(o => !o)}
+            title={evListOpen ? 'Collapse' : 'Expand'} aria-expanded={evListOpen}>
+            <span className="ev-toggle-arr" style={{ transform: evListOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>▾</span>
           </button>
         </div>
         {evListOpen && (
@@ -329,27 +297,7 @@ export default function CalendarView() {
             <button className="link-btn" onClick={() => setStep(2)}>← Subjects</button>
             <button className="link-btn" onClick={() => setStep(1)}>← Zone</button>
             <button className="exp-btn" onClick={handleExportClick}>Export</button>
-
-            {/* Auth status */}
-            {isSupabaseEnabled && (
-              user ? (
-                <div className="auth-status">
-                  <span className="auth-synced" title={`Synced as ${user.email}`}>
-                    ✓ Synced
-                  </span>
-                  <button className="auth-signout-btn" onClick={signOut}>Sign out</button>
-                </div>
-              ) : (
-                <button
-                  className="auth-signin-btn"
-                  onClick={() => openAuth('general')}
-                  title="Sign in to sync your calendar to the cloud"
-                >
-                  Sign in
-                </button>
-              )
-            )}
-
+            <AuthHeaderButton />
             {!isMobile && (
               <button className="tog" onClick={() => setPanelOpen(p => !p)}>
                 <i className="tog-arr" style={{ transform: panelOpen ? '' : 'rotate(180deg)' }}>&#8594;</i>
@@ -368,10 +316,8 @@ export default function CalendarView() {
               Safari and some browsers clear local storage after 7 days of inactivity.
               Sign in to move your calendar to the cloud.
             </span>
-            <button
-              className="stale-cta"
-              onClick={() => openAuth('protect', { onSuccess: () => setStaleBanner(false) })}
-            >
+            <button className="stale-cta"
+              onClick={() => openAuth('protect', { onSuccess: () => setStaleBanner(false) })}>
               Sign in to protect it
             </button>
             <button className="stale-dismiss" onClick={() => setStaleBanner(false)}>×</button>
@@ -404,23 +350,18 @@ export default function CalendarView() {
                       const vis   = evs.slice(0, 3);
                       const extra = evs.length - 3;
                       return (
-                        <div
-                          key={k}
+                        <div key={k}
                           className={`cd${isSel ? ' sel' : ''}${isWk ? ' wk' : ''}`}
-                          onClick={() => pickDate(k)}
-                        >
+                          onClick={() => pickDate(k)}>
                           <span className="dn">{d}</span>
                           <div className="evs">
                             {vis.map(ev => {
                               const lbl = ev.type === 'exam' && ev.time
                                 ? `${ev.subject} ${ev.time}` : ev.subject;
                               return (
-                                <span
-                                  key={ev.id}
-                                  className={`ep ${ev.type}`}
+                                <span key={ev.id} className={`ep ${ev.type}`}
                                   title={`${ev.subject}${ev.time ? ' · ' + ev.time : ''}`}
-                                  onClick={e => { e.stopPropagation(); startEdit(ev.id); }}
-                                >
+                                  onClick={e => { e.stopPropagation(); startEdit(ev.id); }}>
                                   {lbl}
                                 </span>
                               );
@@ -443,14 +384,10 @@ export default function CalendarView() {
           )}
         </div>
 
-        {/* Mobile FAB */}
         {isMobile && (
-          <button className="fab" onClick={() => { setSheetOpen(true); setSelDate(null); }}>
-            +
-          </button>
+          <button className="fab" onClick={() => { setSheetOpen(true); setSelDate(null); }}>+</button>
         )}
 
-        {/* Mobile bottom sheet */}
         {isMobile && sheetOpen && (
           <>
             <div className="sheet-backdrop" onClick={() => setSheetOpen(false)} />
@@ -461,6 +398,9 @@ export default function CalendarView() {
           </>
         )}
       </div>
+
+      {/* Guest expiry popup — shown to signed-out users */}
+      <GuestExpiryPopup />
 
       {/* Export modal */}
       {exportOpen && (

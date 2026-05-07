@@ -21,8 +21,9 @@ function setDismissed(reason) {
 }
 
 export function AuthProvider({ children }) {
-  const [user,        setUser]        = useState(null);
-  const [authLoading, setAuthLoading] = useState(true);
+  const [user,          setUser]          = useState(null);
+  const [authLoading,   setAuthLoading]   = useState(true);
+  const [pendingExport, setPendingExport] = useState(false);
 
   // Modal state
   const [modal, setModal] = useState({
@@ -36,6 +37,20 @@ export function AuthProvider({ children }) {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
       setAuthLoading(false);
+
+      // If user just returned from an OAuth redirect and we had a pending callback,
+      // retrieve and fire it. We store the reason in sessionStorage because the
+      // redirect destroys all JS state.
+      if (session?.user) {
+        const pending = sessionStorage.getItem('auth-pending-action');
+        if (pending === 'export') {
+          sessionStorage.removeItem('auth-pending-action');
+          // Small delay to ensure the UI has mounted before opening export
+          setTimeout(() => {
+            setPendingExport(true);
+          }, 300);
+        }
+      }
     });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -48,6 +63,10 @@ export function AuthProvider({ children }) {
   // ── Auth actions ──────────────────────────────────────────────────────────
   async function signInWithGoogle() {
     if (!isSupabaseEnabled) return;
+    // If there's a pending export, store it so we can resume after redirect
+    if (modal.reason === 'export') {
+      sessionStorage.setItem('auth-pending-action', 'export');
+    }
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: window.location.origin },
@@ -109,6 +128,7 @@ export function AuthProvider({ children }) {
     user, authLoading, isSupabaseEnabled,
     signInWithGoogle, signInWithEmail, signUpWithEmail, signOut,
     modal, openAuth, closeModal, onAuthSuccess,
+    pendingExport, clearPendingExport: () => setPendingExport(false),
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

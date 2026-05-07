@@ -6,6 +6,7 @@
 import { useState } from 'react';
 import { usePlanner } from '../context/PlannerContext.jsx';
 import { ZONE_INFO } from '../utils/timetable.js';
+import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
 
 const ZONE_KEYS = [1, 2, 3, 'uk', 4, 5, 6];
 
@@ -36,7 +37,10 @@ export default function ZoneConfirm() {
             <p className="title">Confirm your zone</p>
             <p className="sub">Cambridge M/J 2026</p>
           </div>
-          <button className="link-btn" onClick={handleBack}>← Country</button>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <AuthHeaderButton />
+            <button className="link-btn" onClick={handleBack}>← Country</button>
+          </div>
         </div>
 
         {!manualMode ? (

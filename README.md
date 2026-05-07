@@ -110,17 +110,6 @@ The planner generates **only** the paper codes actually present in each zone's r
 
 `countries.json` covers 200 countries, verified against the official Cambridge administrative zone-finder tool (`cambridgeinternational.org/exam-administration/.../administrative-zone/`). Key corrections applied vs common misconceptions:
 
-| Country | Zone | Common mistake |
-|---------|------|----------------|
-| United Kingdom | UK | Often assumed Zone 2 |
-| UAE, Oman, Kuwait, Bahrain, Qatar, Saudi Arabia | 3 | Often assumed Zone 4 |
-| Australia | 5 | Often assumed Zone 6 |
-| Papua New Guinea, Solomon Islands, Vanuatu | 5 | Often assumed Zone 6 |
-| New Zealand, Fiji, Tonga, Samoa | 6 | Correct |
-| Thailand, Vietnam, Cambodia, Laos, Myanmar | 4 | Often assumed Zone 5 |
-| Mauritius, Seychelles | 4 | Often assumed Zone 3 |
-| Nigeria, Ghana, Kenya, Tanzania | 3 | Correct |
-
 ---
 
 ## Architecture
@@ -269,3 +258,65 @@ One-time prompts ("subjects", "events") record a dismissal timestamp in localSto
 - **localStorage** is always written immediately on every state change (offline fallback)
 - **Supabase** is written with a 1.5-second debounce to avoid excessive writes
 - On sign-in, cloud data is loaded and merged with local data. If cloud is newer (by `updated_at`), cloud wins. Events from both sources are merged by ID (local wins on conflict).
+
+---
+
+## Supabase: Profiles table (run this SQL too)
+
+In addition to the `planners` table, run this in the Supabase SQL editor to store user profile, email, name, and geo data:
+
+```sql
+create table public.profiles (
+  id           uuid primary key references auth.users(id) on delete cascade,
+  email        text,
+  full_name    text,
+  avatar_url   text,
+  ip_address   text,
+  country_code text,
+  country_name text,
+  city         text,
+  region       text,
+  latitude     numeric,
+  longitude    numeric,
+  timezone     text,
+  org          text,       -- ISP / organisation from ipapi.co
+  zone         text,       -- Cambridge zone at time of sign-in
+  created_at   timestamptz default now(),
+  last_seen_at timestamptz default now()
+);
+
+alter table public.profiles enable row level security;
+
+-- Users can only read their own profile
+create policy "Users can read own profile"
+  on public.profiles for select
+  using (auth.uid() = id);
+
+-- Users can upsert their own profile
+create policy "Users can upsert own profile"
+  on public.profiles for insert
+  with check (auth.uid() = id);
+
+create policy "Users can update own profile"
+  on public.profiles for update
+  using (auth.uid() = id);
+
+-- Admin can read all profiles (for analytics — use service_role key only)
+-- create policy "Admin read all" on public.profiles for select using (true);
+```
+
+### What gets collected
+
+| Field | Source |
+|-------|--------|
+| `email` | Supabase auth (Google or email) |
+| `full_name` | Google OAuth `user_metadata.full_name` |
+| `avatar_url` | Google OAuth `user_metadata.picture` |
+| `ip_address` | `ipapi.co/json()` — detected at app load |
+| `country_code`, `country_name`, `city`, `region` | `ipapi.co/json()` |
+| `latitude`, `longitude`, `timezone` | `ipapi.co/json()` |
+| `org` | ISP/organisation from `ipapi.co/json()` |
+| `zone` | User's confirmed Cambridge zone |
+| `last_seen_at` | Updated on every sign-in |
+
+To view all profiles for analytics, query from the Supabase dashboard using the `service_role` key (never expose this in the frontend).

@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from 'react';
 import { loadZoneTimetable, buildTimetableEvents, fmtDateLong, ZONE_INFO } from '../utils/timetable.js';
 import { usePlanner } from '../context/PlannerContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
+import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
 
 export default function SubjectSelect() {
   const { zone, selectedCodes, setSelectedCodes, events, setEvents, setStep } = usePlanner();
@@ -116,7 +117,10 @@ export default function SubjectSelect() {
               Zone {zone} · {zoneInfo?.regions} · tick the papers you are sitting
             </p>
           </div>
-          <button className="link-btn" onClick={() => setStep(1)}>← Zone</button>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <AuthHeaderButton />
+            <button className="link-btn" onClick={() => setStep(1)}>← Zone</button>
+          </div>
         </div>
 
         {/* Zone info bar */}

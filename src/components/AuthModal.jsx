@@ -8,9 +8,9 @@ import { useAuth } from '../context/AuthContext.jsx';
 
 const REASON_COPY = {
   export: {
-    headline: 'Save before you export',
-    body: 'Sign in to keep a permanent cloud backup of your calendar — then export it. Your plan stays safe across browsers and devices.',
-    skip: 'Skip and just export',
+    headline: 'Sign in to export',
+    body: 'Create a free account to export your calendar — and back it up to the cloud at the same time. It takes one click with Google.',
+    skip: null, // no skip — export is gated
   },
   protect: {
     headline: 'Protect your plan',
@@ -60,11 +60,14 @@ export default function AuthModal() {
     setError(''); setLoading(true);
     try {
       await signInWithGoogle();
-      // OAuth redirects away — onAuthSuccess fires via onAuthStateChange after return
-      onAuthSuccess();
+      // signInWithOAuth triggers a full-page redirect to Google.
+      // onAuthSuccess will be called automatically by onAuthStateChange
+      // in AuthContext after the user returns and the session is confirmed.
+      // We do NOT call onAuthSuccess() here to avoid the unlock gap.
     } catch (e) {
       setError(e.message || 'Google sign-in failed.');
-    } finally { setLoading(false); }
+      setLoading(false);
+    }
   }
 
   async function handleEmail(e) {
@@ -94,15 +97,20 @@ export default function AuthModal() {
   }
 
   function handleBackdrop(e) {
-    if (e.target === e.currentTarget) handleSkip();
+    if (e.target !== e.currentTarget) return;
+    // Export modal is mandatory — cannot be dismissed by clicking backdrop
+    if (modal.reason === 'export') return;
+    handleSkip();
   }
 
   return (
     <div className="auth-overlay" onClick={handleBackdrop}>
       <div className="auth-modal">
 
-        {/* Close */}
-        <button className="auth-close" onClick={handleSkip} title="Close">×</button>
+        {/* Close — hidden for mandatory export modal */}
+        {copy.skip && (
+          <button className="auth-close" onClick={handleSkip} title="Close">×</button>
+        )}
 
         {/* Header */}
         <div className="auth-header">
@@ -189,10 +197,12 @@ export default function AuthModal() {
               </button>
             </form>
 
-            {/* ── Skip link ── */}
-            <button className="auth-skip" onClick={handleSkip} disabled={loading}>
-              {copy.skip}
-            </button>
+            {/* ── Skip link — hidden for mandatory reasons ── */}
+            {copy.skip && (
+              <button className="auth-skip" onClick={handleSkip} disabled={loading}>
+                {copy.skip}
+              </button>
+            )}
           </>
         )}
       </div>
