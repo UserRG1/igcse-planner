@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 import { PlannerProvider, usePlanner } from './context/PlannerContext.jsx';
 import { supabase, isSupabaseEnabled } from './lib/supabase.js';
@@ -91,7 +92,22 @@ function PlannerApp() {
 // ── Top-level router — legal pages need no auth/planner state ────────────
 export default function App() {
   const path = window.location.pathname;
-  if (path === '/privacy') return <PrivacyPolicy />;
-  if (path === '/terms')   return <TermsOfService />;
-  return <PlannerApp />;
+  if (path === '/privacy') return (
+    <>
+      <PrivacyPolicy />
+      <Analytics />
+    </>
+  );
+  if (path === '/terms') return (
+    <>
+      <TermsOfService />
+      <Analytics />
+    </>
+  );
+  return (
+    <>
+      <PlannerApp />
+      <Analytics />
+    </>
+  );
 }
