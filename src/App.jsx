@@ -1,6 +1,4 @@
 import { useEffect } from 'react';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 import { PlannerProvider, usePlanner } from './context/PlannerContext.jsx';
 import { supabase, isSupabaseEnabled } from './lib/supabase.js';
@@ -17,8 +15,22 @@ const LS_KEY = 'igcse-planner-v5';
 function CloudSync() {
   const { user, authLoading } = useAuth();
   const { step, zone, country, selectedCodes, events, geoData,
-          setAuthUserId, loadFromCloud, syncToCloud } = usePlanner();
+          setAuthUserId, setGeoData, loadFromCloud, syncToCloud } = usePlanner();
 
+  // ── Geo fetch: always runs on mount, regardless of which step/page ────────
+  // Previously this only ran inside LocationSelect (step 0), so returning
+  // signed-in users who load directly into the calendar never populated geoData.
+  useEffect(() => {
+    if (geoData) return; // already fetched this session — don't re-fetch
+    fetch('https://ipapi.co/json/')
+      .then(r => r.json())
+      .then(data => {
+        if (data && !data.error) setGeoData(data);
+      })
+      .catch(() => {}); // non-critical — silently ignore network errors
+  }, []);
+
+  // ── Storage tier ──────────────────────────────────────────────────────────
   useEffect(() => {
     if (authLoading) return;
     if (user?.id) {
@@ -29,16 +41,21 @@ function CloudSync() {
     }
   }, [user?.id, authLoading]);
 
+  // ── Cloud load: once on sign-in ───────────────────────────────────────────
   useEffect(() => {
     if (user?.id) loadFromCloud(user.id);
   }, [user?.id]);
 
+  // ── Cloud save: debounced on every state change ───────────────────────────
   useEffect(() => {
     if (user?.id) syncToCloud(user.id);
   }, [user?.id, step, zone, country, selectedCodes, events]);
 
+  // ── Profile save: fires when user is known AND geoData has resolved ───────
+  // Depends on both user?.id and geoData so it re-runs once geoData arrives,
+  // which may be after the initial sign-in effect if the fetch was still pending.
   useEffect(() => {
-    if (user && isSupabaseEnabled) saveProfile(user, geoData, zone);
+    if (user && isSupabaseEnabled && geoData) saveProfile(user, geoData, zone);
   }, [user?.id, geoData, zone]);
 
   return null;
