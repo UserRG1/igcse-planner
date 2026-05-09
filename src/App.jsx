@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 import { PlannerProvider, usePlanner } from './context/PlannerContext.jsx';
 import { supabase, isSupabaseEnabled } from './lib/supabase.js';
@@ -96,18 +97,21 @@ export default function App() {
     <>
       <PrivacyPolicy />
       <Analytics />
+      <SpeedInsights />
     </>
   );
   if (path === '/terms') return (
     <>
       <TermsOfService />
       <Analytics />
+      <SpeedInsights />
     </>
   );
   return (
     <>
       <PlannerApp />
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
