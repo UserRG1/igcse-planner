@@ -9,7 +9,9 @@ import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
 import Footer from '../components/Footer.jsx';
 
 export default function LocationSelect() {
-  const { setCountry, setZone, setStep, setGeoData } = usePlanner();
+  // geoData is now fetched by CloudSync in App.jsx (always, on every load).
+  // LocationSelect reads it from context and uses it for country auto-detection.
+  const { setCountry, setZone, setStep, geoData } = usePlanner();
 
   const [countries, setCountries]         = useState([]);
   const [detected, setDetected]           = useState(null);   // { name, code, zone }
@@ -20,24 +22,23 @@ export default function LocationSelect() {
   const inputRef = useRef(null);
   const dropRef  = useRef(null);
 
-  // Load countries
+  // Load countries list
   useEffect(() => {
     loadCountries().then(setCountries).catch(() => setCountries([]));
   }, []);
 
-  // IP geolocation
+  // Derive detected country from geoData (fetched by CloudSync)
   useEffect(() => {
-    fetch('https://ipapi.co/json/')
-      .then(r => r.json())
-      .then(data => {
-        setDetecting(false);
-        setGeoData(data); // store full payload for profile saving
-        if (data?.country_code) {
-          setDetected({ code: data.country_code, name: data.country_name });
-        }
-      })
-      .catch(() => setDetecting(false));
-  }, []);
+    if (geoData) {
+      setDetecting(false);
+      if (geoData.country_code) {
+        setDetected({ code: geoData.country_code, name: geoData.country_name });
+      }
+    }
+    // If geoData hasn't arrived after 3s, stop the spinner
+    const t = setTimeout(() => setDetecting(false), 3000);
+    return () => clearTimeout(t);
+  }, [geoData]);
 
   // Once both countries and detected are available, find the match
   const detectedCountry = detected && countries.length
