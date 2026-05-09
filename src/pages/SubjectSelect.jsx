@@ -9,6 +9,7 @@ import { loadZoneTimetable, buildTimetableEvents, fmtDateLong, ZONE_INFO } from 
 import { usePlanner } from '../context/PlannerContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
+import Footer from '../components/Footer.jsx';
 
 export default function SubjectSelect() {
   const { zone, selectedCodes, setSelectedCodes, events, setEvents, setStep } = usePlanner();
@@ -208,6 +209,8 @@ export default function SubjectSelect() {
           );
         })}
       </div>
+
+      <Footer />
 
       {/* Sticky footer */}
       <div className="pg1-footer">

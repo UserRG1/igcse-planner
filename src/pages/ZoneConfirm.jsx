@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { usePlanner } from '../context/PlannerContext.jsx';
 import { ZONE_INFO } from '../utils/timetable.js';
 import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
+import Footer from '../components/Footer.jsx';
 
 const ZONE_KEYS = [1, 2, 3, 'uk', 4, 5, 6];
 
@@ -125,6 +126,7 @@ export default function ZoneConfirm() {
           You can return here any time to change your zone. The calendar is fully editable
           if you are sitting exams across multiple zones.
         </p>
+        <Footer />
       </div>
     </div>
   );

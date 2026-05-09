@@ -8,6 +8,7 @@ import { usePlanner } from '../context/PlannerContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
 import GuestExpiryPopup from '../components/GuestExpiryPopup.jsx';
+import Footer from '../components/Footer.jsx';
 
 const MONTHS = [
   { y: 2026, m: 3, name: 'April 2026', id: 'c-apr' },
@@ -423,6 +424,8 @@ export default function CalendarView() {
 
       {/* Guest expiry popup — shown to signed-out users */}
       <GuestExpiryPopup />
+
+      <Footer />
 
       {/* Export modal */}
       {exportOpen && (

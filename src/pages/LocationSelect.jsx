@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import { loadCountries } from '../utils/timetable.js';
 import { usePlanner } from '../context/PlannerContext.jsx';
 import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
+import Footer from '../components/Footer.jsx';
 
 export default function LocationSelect() {
   const { setCountry, setZone, setStep, setGeoData } = usePlanner();
@@ -189,6 +190,7 @@ export default function LocationSelect() {
           Can't find your country? Select the closest zone manually on the next screen.
           The calendar is fully editable — you can always adjust exam dates by hand.
         </p>
+        <Footer />
       </div>
     </div>
   );
