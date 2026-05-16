@@ -1,0 +1,269 @@
+{
+  "curriculum": "ib",
+  "qualification": "ib-dp",
+  "label": "IB Diploma Programme",
+  "session": "May 2026",
+  "source": "IBO May 2026 Examination Schedule (cross-referenced with aimnova.app, num8ers.com)",
+  "note": "All IB zones (A, B, C) follow the same exam dates. Start times are set by your school.",
+  "categories": [
+    {
+      "id": "group4",
+      "name": "Group 4: Sciences",
+      "subjects": [
+        {
+          "id": "physics", "name": "Physics", "code": "Physics",
+          "papers": [
+            { "code": "physics-hl-p1", "name": "Paper 1 (1a & 1b)", "level": "HL", "date": "2026-04-28", "sess": "PM", "dur": "2h",      "v": 0 },
+            { "code": "physics-sl-p1", "name": "Paper 1 (1a & 1b)", "level": "SL", "date": "2026-04-28", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "physics-hl-p2", "name": "Paper 2",           "level": "HL", "date": "2026-04-29", "sess": "AM", "dur": "2h 30m",  "v": 0 },
+            { "code": "physics-sl-p2", "name": "Paper 2",           "level": "SL", "date": "2026-04-29", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "physics-hl-p3", "name": "Paper 3",           "level": "HL", "date": "2026-04-29", "sess": "AM", "dur": "1h 15m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "chemistry", "name": "Chemistry", "code": "Chemistry",
+          "papers": [
+            { "code": "chem-hl-p1",   "name": "Paper 1 (1a & 1b)", "level": "HL", "date": "2026-05-15", "sess": "PM", "dur": "2h",      "v": 0 },
+            { "code": "chem-sl-p1",   "name": "Paper 1 (1a & 1b)", "level": "SL", "date": "2026-05-15", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "chem-hl-p2",   "name": "Paper 2",           "level": "HL", "date": "2026-05-18", "sess": "AM", "dur": "2h 15m",  "v": 0 },
+            { "code": "chem-sl-p2",   "name": "Paper 2",           "level": "SL", "date": "2026-05-18", "sess": "AM", "dur": "1h 15m",  "v": 0 },
+            { "code": "chem-hl-p3",   "name": "Paper 3",           "level": "HL", "date": "2026-05-18", "sess": "AM", "dur": "1h 15m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "biology", "name": "Biology", "code": "Biology",
+          "papers": [
+            { "code": "bio-hl-p1",    "name": "Paper 1 (1a & 1b)", "level": "HL", "date": "2026-05-11", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "bio-sl-p1",    "name": "Paper 1 (1a & 1b)", "level": "SL", "date": "2026-05-11", "sess": "PM", "dur": "1h",      "v": 0 },
+            { "code": "bio-hl-p2",    "name": "Paper 2",           "level": "HL", "date": "2026-05-12", "sess": "AM", "dur": "2h 15m",  "v": 0 },
+            { "code": "bio-sl-p2",    "name": "Paper 2",           "level": "SL", "date": "2026-05-12", "sess": "AM", "dur": "1h 15m",  "v": 0 },
+            { "code": "bio-hl-p3",    "name": "Paper 3",           "level": "HL", "date": "2026-05-12", "sess": "AM", "dur": "1h 15m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "computer-science", "name": "Computer Science", "code": "CS",
+          "papers": [
+            { "code": "cs-hl-p1",     "name": "Paper 1",           "level": "HL", "date": "2026-04-30", "sess": "PM", "dur": "2h 10m",  "v": 0 },
+            { "code": "cs-sl-p1",     "name": "Paper 1",           "level": "SL", "date": "2026-04-30", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "cs-hl-p2",     "name": "Paper 2",           "level": "HL", "date": "2026-05-04", "sess": "AM", "dur": "1h 20m",  "v": 0 },
+            { "code": "cs-sl-p2",     "name": "Paper 2",           "level": "SL", "date": "2026-05-04", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "ess", "name": "Environmental Systems & Societies", "code": "ESS",
+          "papers": [
+            { "code": "ess-hl-p1",    "name": "Paper 1",           "level": "HL", "date": "2026-04-30", "sess": "PM", "dur": "2h",      "v": 0 },
+            { "code": "ess-sl-p1",    "name": "Paper 1",           "level": "SL", "date": "2026-04-30", "sess": "PM", "dur": "1h",      "v": 0 },
+            { "code": "ess-hl-p2",    "name": "Paper 2",           "level": "HL", "date": "2026-05-04", "sess": "AM", "dur": "2h",      "v": 0 },
+            { "code": "ess-sl-p2",    "name": "Paper 2",           "level": "SL", "date": "2026-05-04", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "sehs", "name": "Sports, Exercise & Health Science", "code": "SEHS",
+          "papers": [
+            { "code": "sehs-hl-p1",   "name": "Paper 1 (1a & 1b)", "level": "HL", "date": "2026-04-28", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "sehs-sl-p1",   "name": "Paper 1 (1a & 1b)", "level": "SL", "date": "2026-04-28", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "sehs-hl-p2",   "name": "Paper 2",           "level": "HL", "date": "2026-04-29", "sess": "AM", "dur": "2h 30m",  "v": 0 },
+            { "code": "sehs-sl-p2",   "name": "Paper 2",           "level": "SL", "date": "2026-04-29", "sess": "AM", "dur": "1h 30m",  "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group5",
+      "name": "Group 5: Mathematics",
+      "subjects": [
+        {
+          "id": "math-aa", "name": "Mathematics: Analysis & Approaches (AA)", "code": "Math AA",
+          "papers": [
+            { "code": "mathaa-hl-p1", "name": "Paper 1 (no calculator)", "level": "HL", "date": "2026-05-14", "sess": "PM", "dur": "2h",      "v": 0 },
+            { "code": "mathaa-sl-p1", "name": "Paper 1 (no calculator)", "level": "SL", "date": "2026-05-14", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "mathaa-hl-p2", "name": "Paper 2 (calculator)",    "level": "HL", "date": "2026-05-15", "sess": "AM", "dur": "2h",      "v": 0 },
+            { "code": "mathaa-sl-p2", "name": "Paper 2 (calculator)",    "level": "SL", "date": "2026-05-15", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "mathaa-hl-p3", "name": "Paper 3 (calculator)",    "level": "HL", "date": "2026-05-20", "sess": "PM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "math-ai", "name": "Mathematics: Applications & Interpretation (AI)", "code": "Math AI",
+          "papers": [
+            { "code": "mathai-hl-p1", "name": "Paper 1 (calculator)",    "level": "HL", "date": "2026-05-14", "sess": "PM", "dur": "2h",      "v": 0 },
+            { "code": "mathai-sl-p1", "name": "Paper 1 (calculator)",    "level": "SL", "date": "2026-05-14", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "mathai-hl-p2", "name": "Paper 2 (calculator)",    "level": "HL", "date": "2026-05-15", "sess": "AM", "dur": "2h",      "v": 0 },
+            { "code": "mathai-sl-p2", "name": "Paper 2 (calculator)",    "level": "SL", "date": "2026-05-15", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "mathai-hl-p3", "name": "Paper 3 (calculator)",    "level": "HL", "date": "2026-05-20", "sess": "PM", "dur": "1h",      "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group3",
+      "name": "Group 3: Individuals & Societies",
+      "subjects": [
+        {
+          "id": "business-management", "name": "Business Management", "code": "BM",
+          "papers": [
+            { "code": "bm-hl-p1",     "name": "Paper 1",            "level": "HL", "date": "2026-04-29", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "bm-sl-p1",     "name": "Paper 1",            "level": "SL", "date": "2026-04-29", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "bm-hl-p3",     "name": "Paper 3",            "level": "HL", "date": "2026-04-29", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "bm-hl-p2",     "name": "Paper 2",            "level": "HL", "date": "2026-04-30", "sess": "AM", "dur": "1h 45m",  "v": 0 },
+            { "code": "bm-sl-p2",     "name": "Paper 2",            "level": "SL", "date": "2026-04-30", "sess": "AM", "dur": "1h 30m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "history", "name": "History", "code": "History",
+          "papers": [
+            { "code": "hist-hl-p1",   "name": "Paper 1 (Source Analysis)",  "level": "HL", "date": "2026-05-04", "sess": "PM", "dur": "1h",      "v": 0 },
+            { "code": "hist-sl-p1",   "name": "Paper 1 (Source Analysis)",  "level": "SL", "date": "2026-05-04", "sess": "PM", "dur": "1h",      "v": 0 },
+            { "code": "hist-hl-p2",   "name": "Paper 2 (Essay)",            "level": "HL", "date": "2026-05-04", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "hist-sl-p2",   "name": "Paper 2 (Essay)",            "level": "SL", "date": "2026-05-04", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "hist-hl-p3",   "name": "Paper 3 (Essay, HL only)",   "level": "HL", "date": "2026-05-05", "sess": "AM", "dur": "2h 30m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "geography", "name": "Geography", "code": "Geography",
+          "papers": [
+            { "code": "geo-hl-p1",    "name": "Paper 1 (Geographic Themes)", "level": "HL", "date": "2026-05-08", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "geo-sl-p1",    "name": "Paper 1 (Geographic Themes)", "level": "SL", "date": "2026-05-08", "sess": "PM", "dur": "1h 30m",  "v": 0 },
+            { "code": "geo-hl-p2",    "name": "Paper 2 (Geographic Perspectives)", "level": "HL", "date": "2026-05-11", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "geo-sl-p2",    "name": "Paper 2 (Geographic Perspectives)", "level": "SL", "date": "2026-05-11", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "geo-hl-p3",    "name": "Paper 3 (HL Core Extension)",  "level": "HL", "date": "2026-05-11", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "economics", "name": "Economics", "code": "Economics",
+          "papers": [
+            { "code": "eco-hl-p2",    "name": "Paper 2 (Data Response)",    "level": "HL", "date": "2026-05-12", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "eco-sl-p2",    "name": "Paper 2 (Data Response)",    "level": "SL", "date": "2026-05-12", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "eco-hl-p1",    "name": "Paper 1 (Extended Response)","level": "HL", "date": "2026-05-13", "sess": "AM", "dur": "1h 15m",  "v": 0 },
+            { "code": "eco-sl-p1",    "name": "Paper 1 (Extended Response)","level": "SL", "date": "2026-05-13", "sess": "AM", "dur": "1h 15m",  "v": 0 },
+            { "code": "eco-hl-p3",    "name": "Paper 3 (Policy, HL only)",  "level": "HL", "date": "2026-05-13", "sess": "AM", "dur": "1h 45m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "psychology", "name": "Psychology", "code": "Psychology",
+          "papers": [
+            { "code": "psych-hl-p1",  "name": "Paper 1 (Core)",             "level": "HL", "date": "2026-05-06", "sess": "PM", "dur": "2h",      "v": 0 },
+            { "code": "psych-sl-p1",  "name": "Paper 1 (Core)",             "level": "SL", "date": "2026-05-06", "sess": "PM", "dur": "2h",      "v": 0 },
+            { "code": "psych-hl-p2",  "name": "Paper 2 (Options)",          "level": "HL", "date": "2026-05-07", "sess": "AM", "dur": "2h",      "v": 0 },
+            { "code": "psych-sl-p2",  "name": "Paper 2 (Options)",          "level": "SL", "date": "2026-05-07", "sess": "AM", "dur": "1h",      "v": 0 },
+            { "code": "psych-hl-p3",  "name": "Paper 3 (Qualitative, HL)",  "level": "HL", "date": "2026-05-07", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group1",
+      "name": "Group 1: Studies in Language & Literature",
+      "subjects": [
+        {
+          "id": "lang-a-lit", "name": "Language A: Literature (non-English/French/Spanish)", "code": "Lang A Lit",
+          "papers": [
+            { "code": "langlit-hl-p1","name": "Paper 1 (Textual Analysis)",  "level": "HL", "date": "2026-04-27", "sess": "PM", "dur": "2h 15m",  "v": 0 },
+            { "code": "langlit-sl-p1","name": "Paper 1 (Textual Analysis)",  "level": "SL", "date": "2026-04-27", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "langlit-p2",  "name": "Paper 2 (Comparative Essay)",  "level": "HL/SL", "date": "2026-04-28", "sess": "AM", "dur": "1h 45m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "lang-a-lanlit", "name": "Language A: Language & Literature (non-English/French/Spanish)", "code": "Lang A L&L",
+          "papers": [
+            { "code": "lanll-hl-p1", "name": "Paper 1 (Textual Analysis)",  "level": "HL", "date": "2026-04-27", "sess": "PM", "dur": "2h 15m",  "v": 0 },
+            { "code": "lanll-sl-p1", "name": "Paper 1 (Textual Analysis)",  "level": "SL", "date": "2026-04-27", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "lanll-p2",    "name": "Paper 2 (Comparative Essay)",  "level": "HL/SL", "date": "2026-04-28", "sess": "AM", "dur": "1h 45m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "english-a-lit", "name": "English A: Literature", "code": "English A Lit",
+          "papers": [
+            { "code": "englit-hl-p1","name": "Paper 1 (Textual Analysis)",  "level": "HL", "date": "2026-05-07", "sess": "PM", "dur": "2h 15m",  "v": 0 },
+            { "code": "englit-sl-p1","name": "Paper 1 (Textual Analysis)",  "level": "SL", "date": "2026-05-07", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "englit-p2",   "name": "Paper 2 (Comparative Essay)", "level": "HL/SL", "date": "2026-05-08", "sess": "AM", "dur": "1h 45m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "english-a-lanlit", "name": "English A: Language & Literature", "code": "English A L&L",
+          "papers": [
+            { "code": "engll-hl-p1", "name": "Paper 1 (Textual Analysis)",  "level": "HL", "date": "2026-05-07", "sess": "PM", "dur": "2h 15m",  "v": 0 },
+            { "code": "engll-sl-p1", "name": "Paper 1 (Textual Analysis)",  "level": "SL", "date": "2026-05-07", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "engll-p2",    "name": "Paper 2 (Comparative Essay)", "level": "HL/SL", "date": "2026-05-08", "sess": "AM", "dur": "1h 45m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "french-a-lit", "name": "French A: Literature", "code": "French A Lit",
+          "papers": [
+            { "code": "frlit-hl-p1", "name": "Paper 1 (Textual Analysis)",  "level": "HL", "date": "2026-05-19", "sess": "PM", "dur": "2h 15m",  "v": 0 },
+            { "code": "frlit-sl-p1", "name": "Paper 1 (Textual Analysis)",  "level": "SL", "date": "2026-05-19", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "frlit-p2",    "name": "Paper 2 (Comparative Essay)", "level": "HL/SL", "date": "2026-05-20", "sess": "AM", "dur": "1h 45m",  "v": 0 }
+          ]
+        },
+        {
+          "id": "spanish-a-lit", "name": "Spanish A: Literature", "code": "Spanish A Lit",
+          "papers": [
+            { "code": "eslit-hl-p1", "name": "Paper 1 (Textual Analysis)",  "level": "HL", "date": "2026-05-13", "sess": "PM", "dur": "2h 15m",  "v": 0 },
+            { "code": "eslit-sl-p1", "name": "Paper 1 (Textual Analysis)",  "level": "SL", "date": "2026-05-13", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "eslit-p2",    "name": "Paper 2 (Comparative Essay)", "level": "HL/SL", "date": "2026-05-14", "sess": "AM", "dur": "1h 45m",  "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group2",
+      "name": "Group 2: Language Acquisition",
+      "subjects": [
+        {
+          "id": "lang-b-french", "name": "French B", "code": "French B",
+          "papers": [
+            { "code": "frb-hl-p1",   "name": "Paper 1 (Reading)",   "level": "HL", "date": "2026-05-05", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "frb-sl-p1",   "name": "Paper 1 (Reading)",   "level": "SL", "date": "2026-05-05", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "frb-hl-p2",   "name": "Paper 2 (Writing)",   "level": "HL", "date": "2026-05-06", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "frb-sl-p2",   "name": "Paper 2 (Writing)",   "level": "SL", "date": "2026-05-06", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "lang-b-spanish", "name": "Spanish B", "code": "Spanish B",
+          "papers": [
+            { "code": "esb-hl-p1",   "name": "Paper 1 (Reading)",   "level": "HL", "date": "2026-05-05", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "esb-sl-p1",   "name": "Paper 1 (Reading)",   "level": "SL", "date": "2026-05-05", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "esb-hl-p2",   "name": "Paper 2 (Writing)",   "level": "HL", "date": "2026-05-06", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "esb-sl-p2",   "name": "Paper 2 (Writing)",   "level": "SL", "date": "2026-05-06", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "lang-b-german", "name": "German B", "code": "German B",
+          "papers": [
+            { "code": "deb-hl-p1",   "name": "Paper 1 (Reading)",   "level": "HL", "date": "2026-05-05", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "deb-sl-p1",   "name": "Paper 1 (Reading)",   "level": "SL", "date": "2026-05-05", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "deb-hl-p2",   "name": "Paper 2 (Writing)",   "level": "HL", "date": "2026-05-06", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "deb-sl-p2",   "name": "Paper 2 (Writing)",   "level": "SL", "date": "2026-05-06", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "lang-b-mandarin", "name": "Mandarin B", "code": "Mandarin B",
+          "papers": [
+            { "code": "zhb-hl-p1",   "name": "Paper 1 (Reading)",   "level": "HL", "date": "2026-05-05", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "zhb-sl-p1",   "name": "Paper 1 (Reading)",   "level": "SL", "date": "2026-05-05", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "zhb-hl-p2",   "name": "Paper 2 (Writing)",   "level": "HL", "date": "2026-05-06", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "zhb-sl-p2",   "name": "Paper 2 (Writing)",   "level": "SL", "date": "2026-05-06", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "lang-b-japanese", "name": "Japanese B", "code": "Japanese B",
+          "papers": [
+            { "code": "jab-hl-p1",   "name": "Paper 1 (Reading)",   "level": "HL", "date": "2026-05-05", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "jab-sl-p1",   "name": "Paper 1 (Reading)",   "level": "SL", "date": "2026-05-05", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "jab-hl-p2",   "name": "Paper 2 (Writing)",   "level": "HL", "date": "2026-05-06", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "jab-sl-p2",   "name": "Paper 2 (Writing)",   "level": "SL", "date": "2026-05-06", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        },
+        {
+          "id": "english-b", "name": "English B", "code": "English B",
+          "papers": [
+            { "code": "enb-hl-p1",   "name": "Paper 1 (Reading)",   "level": "HL", "date": "2026-05-05", "sess": "PM", "dur": "1h 45m",  "v": 0 },
+            { "code": "enb-sl-p1",   "name": "Paper 1 (Reading)",   "level": "SL", "date": "2026-05-05", "sess": "PM", "dur": "1h 15m",  "v": 0 },
+            { "code": "enb-hl-p2",   "name": "Paper 2 (Writing)",   "level": "HL", "date": "2026-05-06", "sess": "AM", "dur": "1h 30m",  "v": 0 },
+            { "code": "enb-sl-p2",   "name": "Paper 2 (Writing)",   "level": "SL", "date": "2026-05-06", "sess": "AM", "dur": "1h",      "v": 0 }
+          ]
+        }
+      ]
+    }
+  ]
+}

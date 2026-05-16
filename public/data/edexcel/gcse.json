@@ -1,0 +1,410 @@
+{
+  "curriculum": "edexcel",
+  "qualification": "gcse",
+  "label": "Edexcel GCSE (UK)",
+  "session": "Summer 2026",
+  "source": "Pearson Edexcel gcse-summer-2026-final.pdf",
+  "note": "Codes begin with 1. Same timetable for UK and international centres. Different qualification from International GCSE (codes begin with 4).,
+  "categories": [
+    {
+      "id": "sciences",
+      "name": "Sciences",
+      "subjects": [
+        {
+          "id": "1bi0", "name": "Biology", "code": "1BI0",
+          "papers": [
+            { "code": "1BI0/1F", "name": "Paper 1 — Foundation",  "date": "2026-05-12", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1BI0/1H", "name": "Paper 1 — Higher",      "date": "2026-05-12", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1BI0/2F", "name": "Paper 2 — Foundation",  "date": "2026-06-08", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1BI0/2H", "name": "Paper 2 — Higher",      "date": "2026-06-08", "sess": "AM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1ch0", "name": "Chemistry", "code": "1CH0",
+          "papers": [
+            { "code": "1CH0/1F", "name": "Paper 1 — Foundation",  "date": "2026-05-18", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1CH0/1H", "name": "Paper 1 — Higher",      "date": "2026-05-18", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1CH0/2F", "name": "Paper 2 — Foundation",  "date": "2026-06-12", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1CH0/2H", "name": "Paper 2 — Higher",      "date": "2026-06-12", "sess": "AM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1ph0", "name": "Physics", "code": "1PH0",
+          "papers": [
+            { "code": "1PH0/1F", "name": "Paper 1 — Foundation",  "date": "2026-06-02", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1PH0/1H", "name": "Paper 1 — Higher",      "date": "2026-06-02", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1PH0/2F", "name": "Paper 2 — Foundation",  "date": "2026-06-15", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1PH0/2H", "name": "Paper 2 — Higher",      "date": "2026-06-15", "sess": "AM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1sc0", "name": "Combined Science", "code": "1SC0",
+          "papers": [
+            { "code": "1SC0/1BF", "name": "Paper 1: Biology 1 — Foundation",   "date": "2026-05-12", "sess": "PM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/1BH", "name": "Paper 1: Biology 1 — Higher",       "date": "2026-05-12", "sess": "PM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/1CF", "name": "Paper 2: Chemistry 1 — Foundation", "date": "2026-05-18", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/1CH", "name": "Paper 2: Chemistry 1 — Higher",     "date": "2026-05-18", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/1PF", "name": "Paper 3: Physics 1 — Foundation",   "date": "2026-06-02", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/1PH", "name": "Paper 3: Physics 1 — Higher",       "date": "2026-06-02", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/2BF", "name": "Paper 4: Biology 2 — Foundation",   "date": "2026-06-08", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/2BH", "name": "Paper 4: Biology 2 — Higher",       "date": "2026-06-08", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/2CF", "name": "Paper 5: Chemistry 2 — Foundation", "date": "2026-06-12", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/2CH", "name": "Paper 5: Chemistry 2 — Higher",     "date": "2026-06-12", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/2PF", "name": "Paper 6: Physics 2 — Foundation",   "date": "2026-06-15", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "1SC0/2PH", "name": "Paper 6: Physics 2 — Higher",       "date": "2026-06-15", "sess": "AM", "dur": "1h 10m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1as0", "name": "Astronomy", "code": "1AS0",
+          "papers": [
+            { "code": "1AS0/01", "name": "Paper 1: Naked-eye Astronomy", "date": "2026-06-01", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1AS0/02", "name": "Paper 2: Telescopic Astronomy", "date": "2026-06-11", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "subjects": [
+        {
+          "id": "1ma1", "name": "Mathematics", "code": "1MA1",
+          "papers": [
+            { "code": "1MA1/1F", "name": "Paper 1: Non-Calculator — Foundation", "date": "2026-05-14", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "1MA1/1H", "name": "Paper 1: Non-Calculator — Higher",     "date": "2026-05-14", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "1MA1/2F", "name": "Paper 2: Calculator — Foundation",     "date": "2026-06-03", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "1MA1/2H", "name": "Paper 2: Calculator — Higher",         "date": "2026-06-03", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "1MA1/3F", "name": "Paper 3: Calculator — Foundation",     "date": "2026-06-10", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "1MA1/3H", "name": "Paper 3: Calculator — Higher",         "date": "2026-06-10", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1st0", "name": "Statistics", "code": "1ST0",
+          "papers": [
+            { "code": "1ST0/1F", "name": "Paper 1 — Foundation", "date": "2026-06-02", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "1ST0/1H", "name": "Paper 1 — Higher",     "date": "2026-06-02", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "1ST0/2F", "name": "Paper 2 — Foundation", "date": "2026-06-12", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "1ST0/2H", "name": "Paper 2 — Higher",     "date": "2026-06-12", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "english",
+      "name": "English",
+      "subjects": [
+        {
+          "id": "1en0", "name": "English Language", "code": "1EN0",
+          "papers": [
+            { "code": "1EN0/01", "name": "Paper 1: Fiction and Imaginative Writing",         "date": "2026-05-21", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1EN0/02", "name": "Paper 2: Non-Fiction and Transactional Writing",   "date": "2026-06-05", "sess": "AM", "dur": "2h 05m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1en2", "name": "English Language 2.0", "code": "1EN2",
+          "papers": [
+            { "code": "1EN2/01", "name": "Paper 1: Non-Fiction Texts",    "date": "2026-05-21", "sess": "AM", "dur": "1h 55m", "v": 0 },
+            { "code": "1EN2/02", "name": "Paper 2: Contemporary Texts",   "date": "2026-06-05", "sess": "AM", "dur": "1h 55m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1et0", "name": "English Literature", "code": "1ET0",
+          "papers": [
+            { "code": "1ET0/01", "name": "Paper 1: Shakespeare and Post-1914 Literature",    "date": "2026-05-11", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1ET0/02", "name": "Paper 2: 19th Century Novel & Poetry since 1789",  "date": "2026-05-19", "sess": "AM", "dur": "2h 15m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "humanities",
+      "name": "Humanities",
+      "subjects": [
+        {
+          "id": "1hi0", "name": "History", "code": "1HI0",
+          "papers": [
+            { "code": "1HI0/10-13", "name": "Paper 1: Thematic study & historic environment", "date": "2026-05-15", "sess": "AM", "dur": "1h 20m", "v": 0 },
+            { "code": "1HI0/2A-2W", "name": "Paper 2: Period study & British depth study",    "date": "2026-06-04", "sess": "AM", "dur": "1h 50m", "v": 0 },
+            { "code": "1HI0/30-33", "name": "Paper 3: Modern depth study",                    "date": "2026-06-09", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1ga0", "name": "Geography A", "code": "1GA0",
+          "papers": [
+            { "code": "1GA0/01", "name": "Paper 1: The Physical Environment",                          "date": "2026-05-13", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1GA0/02", "name": "Paper 2: The Human Environment",                             "date": "2026-06-03", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "1GA0/03", "name": "Paper 3: Geographical Investigations: Fieldwork & UK Challenges", "date": "2026-06-11", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1gb0", "name": "Geography B", "code": "1GB0",
+          "papers": [
+            { "code": "1GB0/01", "name": "Paper 1: Global Geographical Issues",                         "date": "2026-05-13", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "1GB0/02", "name": "Paper 2: UK Geographical Issues",                             "date": "2026-06-03", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1GB0/03", "name": "Paper 3: People and Environment Issues — Making Geographical Decisions", "date": "2026-06-11", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1ra0", "name": "Religious Studies A", "code": "1RA0",
+          "papers": [
+            { "code": "1RA0/1",  "name": "Paper 1: Study of Religion",           "date": "2026-05-12", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1RA0/2",  "name": "Paper 2: Study of Second Religion",    "date": "2026-05-20", "sess": "PM", "dur": "50m",    "v": 0 },
+            { "code": "1RA0/3",  "name": "Paper 3: Philosophy and Ethics",       "date": "2026-06-01", "sess": "PM", "dur": "50m",    "v": 0 },
+            { "code": "1RA0/4",  "name": "Paper 4: Textual Studies",             "date": "2026-06-01", "sess": "PM", "dur": "50m",    "v": 0 }
+          ]
+        },
+        {
+          "id": "1rb0", "name": "Religious Studies B", "code": "1RB0",
+          "papers": [
+            { "code": "1RB0/1",  "name": "Paper 1: Religion and Ethics",                    "date": "2026-05-12", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1RB0/2",  "name": "Paper 2: Religion, Peace and Conflict",           "date": "2026-05-20", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1RB0/3",  "name": "Paper 3: Religion, Philosophy and Social Justice","date": "2026-06-01", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1cs0", "name": "Citizenship Studies", "code": "1CS0",
+          "papers": [
+            { "code": "1CS0/01", "name": "Paper 1", "date": "2026-05-07", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1CS0/02", "name": "Paper 2", "date": "2026-05-14", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "business-economics",
+      "name": "Business & Social Sciences",
+      "subjects": [
+        {
+          "id": "1bs0", "name": "Business", "code": "1BS0",
+          "papers": [
+            { "code": "1BS0/01", "name": "Paper 1: Investigating Small Business", "date": "2026-05-11", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1BS0/02", "name": "Paper 2: Building a Business",          "date": "2026-05-21", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1ps0", "name": "Psychology", "code": "1PS0",
+          "papers": [
+            { "code": "1PS0/01", "name": "Paper 1", "date": "2026-05-07", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "1PS0/02", "name": "Paper 2", "date": "2026-05-14", "sess": "PM", "dur": "1h 20m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "name": "Languages",
+      "subjects": [
+        {
+          "id": "1fr1", "name": "French", "code": "1FR1",
+          "papers": [
+            { "code": "1FR1/2F", "name": "Paper 2: Listening — Foundation", "date": "2026-05-20", "sess": "AM", "dur": "45m",    "v": 0 },
+            { "code": "1FR1/2H", "name": "Paper 2: Listening — Higher",     "date": "2026-05-20", "sess": "AM", "dur": "1h",     "v": 0 },
+            { "code": "1FR1/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-06-04", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1FR1/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-06-04", "sess": "PM", "dur": "1h",     "v": 0 },
+            { "code": "1FR1/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-08", "sess": "PM", "dur": "1h 15m", "v": 0 },
+            { "code": "1FR1/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-08", "sess": "PM", "dur": "1h 20m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1gn1", "name": "German", "code": "1GN1",
+          "papers": [
+            { "code": "1GN1/2F", "name": "Paper 2: Listening — Foundation", "date": "2026-05-07", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1GN1/2H", "name": "Paper 2: Listening — Higher",     "date": "2026-05-07", "sess": "PM", "dur": "1h",     "v": 0 },
+            { "code": "1GN1/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-05-14", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1GN1/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-05-14", "sess": "PM", "dur": "1h",     "v": 0 },
+            { "code": "1GN1/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-01", "sess": "PM", "dur": "1h 15m", "v": 0 },
+            { "code": "1GN1/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-01", "sess": "PM", "dur": "1h 20m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1sp1", "name": "Spanish", "code": "1SP1",
+          "papers": [
+            { "code": "1SP1/2F", "name": "Paper 2: Listening — Foundation", "date": "2026-06-09", "sess": "AM", "dur": "45m",    "v": 0 },
+            { "code": "1SP1/2H", "name": "Paper 2: Listening — Higher",     "date": "2026-06-09", "sess": "AM", "dur": "1h",     "v": 0 },
+            { "code": "1SP1/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-06-16", "sess": "AM", "dur": "45m",    "v": 0 },
+            { "code": "1SP1/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-06-16", "sess": "AM", "dur": "1h",     "v": 0 },
+            { "code": "1SP1/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-17", "sess": "AM", "dur": "1h 15m", "v": 0 },
+            { "code": "1SP1/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-17", "sess": "AM", "dur": "1h 20m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1aa0", "name": "Arabic", "code": "1AA0",
+          "papers": [
+            { "code": "1AA0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-05-22", "sess": "AM", "dur": "35m",    "v": 0 },
+            { "code": "1AA0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-05-22", "sess": "AM", "dur": "45m",    "v": 0 },
+            { "code": "1AA0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-05-22", "sess": "AM", "dur": "50m",    "v": 0 },
+            { "code": "1AA0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-05-22", "sess": "AM", "dur": "1h 05m", "v": 0 },
+            { "code": "1AA0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-02", "sess": "PM", "dur": "1h 20m", "v": 0 },
+            { "code": "1AA0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-02", "sess": "PM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1cn0", "name": "Chinese", "code": "1CN0",
+          "papers": [
+            { "code": "1CN0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-05-11", "sess": "PM", "dur": "35m",    "v": 0 },
+            { "code": "1CN0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-05-11", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1CN0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-05-11", "sess": "PM", "dur": "50m",    "v": 0 },
+            { "code": "1CN0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-05-11", "sess": "PM", "dur": "1h 05m", "v": 0 },
+            { "code": "1CN0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-05-18", "sess": "PM", "dur": "1h 20m", "v": 0 },
+            { "code": "1CN0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-05-18", "sess": "PM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1gk0", "name": "Greek", "code": "1GK0",
+          "papers": [
+            { "code": "1GK0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-06-10", "sess": "PM", "dur": "35m",    "v": 0 },
+            { "code": "1GK0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-06-10", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1GK0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-06-10", "sess": "PM", "dur": "50m",    "v": 0 },
+            { "code": "1GK0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-06-10", "sess": "PM", "dur": "1h 05m", "v": 0 },
+            { "code": "1GK0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-17", "sess": "AM", "dur": "1h 20m", "v": 0 },
+            { "code": "1GK0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-17", "sess": "AM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1gu0", "name": "Gujarati", "code": "1GU0",
+          "papers": [
+            { "code": "1GU0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-06-01", "sess": "PM", "dur": "35m",    "v": 0 },
+            { "code": "1GU0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-06-01", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1GU0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-06-01", "sess": "PM", "dur": "50m",    "v": 0 },
+            { "code": "1GU0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-06-01", "sess": "PM", "dur": "1h 05m", "v": 0 },
+            { "code": "1GU0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-09", "sess": "PM", "dur": "1h 20m", "v": 0 },
+            { "code": "1GU0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-09", "sess": "PM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1in0", "name": "Italian", "code": "1IN0",
+          "papers": [
+            { "code": "1IN0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-05-22", "sess": "AM", "dur": "35m",    "v": 0 },
+            { "code": "1IN0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-05-22", "sess": "AM", "dur": "45m",    "v": 0 },
+            { "code": "1IN0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-05-22", "sess": "AM", "dur": "45m",    "v": 0 },
+            { "code": "1IN0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-05-22", "sess": "AM", "dur": "1h",     "v": 0 },
+            { "code": "1IN0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-01", "sess": "AM", "dur": "1h 15m", "v": 0 },
+            { "code": "1IN0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-01", "sess": "AM", "dur": "1h 20m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1ja0", "name": "Japanese", "code": "1JA0",
+          "papers": [
+            { "code": "1JA0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-06-01", "sess": "AM", "dur": "35m",    "v": 0 },
+            { "code": "1JA0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-06-01", "sess": "AM", "dur": "45m",    "v": 0 },
+            { "code": "1JA0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-06-01", "sess": "AM", "dur": "50m",    "v": 0 },
+            { "code": "1JA0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-06-01", "sess": "AM", "dur": "1h 05m", "v": 0 },
+            { "code": "1JA0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-09", "sess": "AM", "dur": "1h 20m", "v": 0 },
+            { "code": "1JA0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-09", "sess": "AM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1pg0", "name": "Portuguese", "code": "1PG0",
+          "papers": [
+            { "code": "1PG0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-06-02", "sess": "PM", "dur": "35m",    "v": 0 },
+            { "code": "1PG0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-06-02", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1PG0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-06-02", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1PG0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-06-02", "sess": "PM", "dur": "1h",     "v": 0 },
+            { "code": "1PG0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-12", "sess": "PM", "dur": "1h 15m", "v": 0 },
+            { "code": "1PG0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-12", "sess": "PM", "dur": "1h 20m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1pn0", "name": "Persian", "code": "1PN0",
+          "papers": [
+            { "code": "1PN0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-06-02", "sess": "PM", "dur": "35m",    "v": 0 },
+            { "code": "1PN0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-06-02", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1PN0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-06-02", "sess": "PM", "dur": "50m",    "v": 0 },
+            { "code": "1PN0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-06-02", "sess": "PM", "dur": "1h 05m", "v": 0 },
+            { "code": "1PN0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-12", "sess": "PM", "dur": "1h 20m", "v": 0 },
+            { "code": "1PN0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-12", "sess": "PM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1ru0", "name": "Russian", "code": "1RU0",
+          "papers": [
+            { "code": "1RU0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-06-02", "sess": "PM", "dur": "35m",    "v": 0 },
+            { "code": "1RU0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-06-02", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1RU0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-06-02", "sess": "PM", "dur": "50m",    "v": 0 },
+            { "code": "1RU0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-06-02", "sess": "PM", "dur": "1h 05m", "v": 0 },
+            { "code": "1RU0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-10", "sess": "PM", "dur": "1h 20m", "v": 0 },
+            { "code": "1RU0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-10", "sess": "PM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1tu0", "name": "Turkish", "code": "1TU0",
+          "papers": [
+            { "code": "1TU0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-05-07", "sess": "AM", "dur": "35m",    "v": 0 },
+            { "code": "1TU0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-05-07", "sess": "AM", "dur": "45m",    "v": 0 },
+            { "code": "1TU0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-05-07", "sess": "AM", "dur": "50m",    "v": 0 },
+            { "code": "1TU0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-05-07", "sess": "AM", "dur": "1h 05m", "v": 0 },
+            { "code": "1TU0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-05-22", "sess": "AM", "dur": "1h 20m", "v": 0 },
+            { "code": "1TU0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-05-22", "sess": "AM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1ur0", "name": "Urdu", "code": "1UR0",
+          "papers": [
+            { "code": "1UR0/1F", "name": "Paper 1: Listening — Foundation", "date": "2026-05-18", "sess": "PM", "dur": "35m",    "v": 0 },
+            { "code": "1UR0/1H", "name": "Paper 1: Listening — Higher",     "date": "2026-05-18", "sess": "PM", "dur": "45m",    "v": 0 },
+            { "code": "1UR0/3F", "name": "Paper 3: Reading — Foundation",   "date": "2026-05-18", "sess": "PM", "dur": "50m",    "v": 0 },
+            { "code": "1UR0/3H", "name": "Paper 3: Reading — Higher",       "date": "2026-05-18", "sess": "PM", "dur": "1h 05m", "v": 0 },
+            { "code": "1UR0/4F", "name": "Paper 4: Writing — Foundation",   "date": "2026-06-02", "sess": "PM", "dur": "1h 20m", "v": 0 },
+            { "code": "1UR0/4H", "name": "Paper 4: Writing — Higher",       "date": "2026-06-02", "sess": "PM", "dur": "1h 25m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1bh0", "name": "Biblical Hebrew", "code": "1BH0",
+          "papers": [
+            { "code": "1BH0/01", "name": "Component 1: Language",   "date": "2026-05-07", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "1BH0/02", "name": "Component 2: Literature", "date": "2026-05-19", "sess": "PM", "dur": "2h", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arts-pe",
+      "name": "Arts & PE",
+      "subjects": [
+        {
+          "id": "1dr0", "name": "Drama", "code": "1DR0",
+          "papers": [
+            { "code": "1DR0/03", "name": "Component 3: Theatre Makers in Practice", "date": "2026-05-08", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1mu0", "name": "Music", "code": "1MU0",
+          "papers": [
+            { "code": "1MU0/03", "name": "Component 3: Appraising", "date": "2026-06-05", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1pe0", "name": "Physical Education", "code": "1PE0",
+          "papers": [
+            { "code": "1PE0/01", "name": "Component 1: Fitness and Body Systems", "date": "2026-05-22", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "1PE0/02", "name": "Component 2: Health and Performance",   "date": "2026-06-01", "sess": "AM", "dur": "1h 15m", "v": 0 }
+          ]
+        },
+        {
+          "id": "1dt0", "name": "Design and Technology", "code": "1DT0",
+          "papers": [
+            { "code": "1DT0/1A", "name": "Component 1: Metals",        "date": "2026-06-10", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1DT0/1B", "name": "Component 1: Papers & Boards","date": "2026-06-10", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1DT0/1C", "name": "Component 1: Polymers",      "date": "2026-06-10", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1DT0/1D", "name": "Component 1: Systems",       "date": "2026-06-10", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1DT0/1E", "name": "Component 1: Textiles",      "date": "2026-06-10", "sess": "PM", "dur": "1h 45m", "v": 0 },
+            { "code": "1DT0/1F", "name": "Component 1: Timbers",       "date": "2026-06-10", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "computing",
+      "name": "Computing",
+      "subjects": [
+        {
+          "id": "1cp2", "name": "Computer Science", "code": "1CP2",
+          "papers": [
+            { "code": "1CP2/01", "name": "Paper 1: Principles of Computer Science",             "date": "2026-05-13", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "1CP2/02", "name": "Paper 2: Application of Computational Thinking (Onscreen)", "date": "2026-05-19", "sess": "PM", "dur": "2h",     "v": 0 }
+          ]
+        }
+      ]
+    }
+  ]
+}

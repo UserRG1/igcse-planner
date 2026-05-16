@@ -1,0 +1,28 @@
+{
+  "note": "Static registry of known timetable sources. Kept in sync with the timetable_sources Supabase table. Updated once per season when boards publish new timetables.",
+  "last_updated": "2025-09-01",
+  "seasons": [
+    {
+      "season": "2026-mj",
+      "label": "May/June 2026",
+      "entries": [
+        { "curriculum": "cambridge", "zone": "1",  "label": "Cambridge Zone 1 · M/J 2026",  "status": "released" },
+        { "curriculum": "cambridge", "zone": "2",  "label": "Cambridge Zone 2 · M/J 2026",  "status": "released" },
+        { "curriculum": "cambridge", "zone": "3",  "label": "Cambridge Zone 3 · M/J 2026",  "status": "released" },
+        { "curriculum": "cambridge", "zone": "4",  "label": "Cambridge Zone 4 · M/J 2026",  "status": "released" },
+        { "curriculum": "cambridge", "zone": "5",  "label": "Cambridge Zone 5 · M/J 2026",  "status": "released" },
+        { "curriculum": "cambridge", "zone": "6",  "label": "Cambridge Zone 6 · M/J 2026",  "status": "released" },
+        { "curriculum": "cambridge", "zone": "uk", "label": "Cambridge Zone UK · M/J 2026", "status": "released" }
+      ]
+    },
+    {
+      "season": "2026-summer",
+      "label": "Summer 2026",
+      "entries": [
+        { "curriculum": "edexcel-igcse", "zone": "", "label": "Edexcel International GCSE · Summer 2026", "status": "released" },
+        { "curriculum": "edexcel-ial",   "zone": "", "label": "Edexcel IAL · Summer 2026",                "status": "released" },
+        { "curriculum": "edexcel-gcse",  "zone": "", "label": "Edexcel GCSE · Summer 2026",               "status": "released" }
+      ]
+    }
+  ]
+}

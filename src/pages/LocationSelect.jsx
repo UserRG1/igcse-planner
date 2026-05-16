@@ -61,7 +61,7 @@ export default function LocationSelect() {
     if (!chosen) return;
     setCountry(chosen);
     setZone(chosen.zone);
-    setStep(1);
+    setStep('zone');
   }
 
   function handleUseDetected() {
@@ -93,7 +93,10 @@ export default function LocationSelect() {
               <p className="title">IGCSE Exam Planner</p>
               <p className="vs-tagline">Cambridge M/J 2026 · April – June</p>
             </div>
-            <AuthHeaderButton />
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+              <AuthHeaderButton />
+              <button className="link-btn" onClick={() => setStep(0)}>← Curriculum</button>
+            </div>
           </div>
         </div>
 

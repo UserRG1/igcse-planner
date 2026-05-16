@@ -4,32 +4,29 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 import { PlannerProvider, usePlanner } from './context/PlannerContext.jsx';
 import { supabase, isSupabaseEnabled } from './lib/supabase.js';
-import AuthModal      from './components/AuthModal.jsx';
-import LocationSelect from './pages/LocationSelect.jsx';
-import ZoneConfirm    from './pages/ZoneConfirm.jsx';
-import SubjectSelect  from './pages/SubjectSelect.jsx';
-import CalendarView   from './pages/CalendarView.jsx';
-import PrivacyPolicy  from './pages/PrivacyPolicy.jsx';
-import TermsOfService from './pages/TermsOfService.jsx';
+import AuthModal         from './components/AuthModal.jsx';
+import CurriculumSelect  from './pages/CurriculumSelect.jsx';
+import LocationSelect    from './pages/LocationSelect.jsx';
+import ZoneConfirm       from './pages/ZoneConfirm.jsx';
+import SubjectSelect     from './pages/SubjectSelect.jsx';
+import CalendarView      from './pages/CalendarView.jsx';
+import PrivacyPolicy     from './pages/PrivacyPolicy.jsx';
+import TermsOfService    from './pages/TermsOfService.jsx';
 
 const LS_KEY = 'igcse-planner-v5';
 
 function CloudSync() {
   const { user, authLoading } = useAuth();
-  const { step, zone, country, selectedCodes, events, geoData,
+  const { step, zone, country, curriculum, selectedCodes, events, geoData,
           setAuthUserId, setGeoData, loadFromCloud, syncToCloud } = usePlanner();
 
-  // ── Geo fetch: always runs on mount, regardless of which step/page ────────
-  // Previously this only ran inside LocationSelect (step 0), so returning
-  // signed-in users who load directly into the calendar never populated geoData.
+  // ── Geo fetch: always runs on mount, regardless of step/page ─────────────
   useEffect(() => {
-    if (geoData) return; // already fetched this session — don't re-fetch
+    if (geoData) return;
     fetch('https://ipapi.co/json/')
       .then(r => r.json())
-      .then(data => {
-        if (data && !data.error) setGeoData(data);
-      })
-      .catch(() => {}); // non-critical — silently ignore network errors
+      .then(data => { if (data && !data.error) setGeoData(data); })
+      .catch(() => {});
   }, []);
 
   // ── Storage tier ──────────────────────────────────────────────────────────
@@ -51,11 +48,9 @@ function CloudSync() {
   // ── Cloud save: debounced on every state change ───────────────────────────
   useEffect(() => {
     if (user?.id) syncToCloud(user.id);
-  }, [user?.id, step, zone, country, selectedCodes, events]);
+  }, [user?.id, step, zone, country, curriculum, selectedCodes, events]);
 
-  // ── Profile save: fires when user is known AND geoData has resolved ───────
-  // Depends on both user?.id and geoData so it re-runs once geoData arrives,
-  // which may be after the initial sign-in effect if the fetch was still pending.
+  // ── Profile save: fires when user + geoData both resolved ────────────────
   useEffect(() => {
     if (user && isSupabaseEnabled && geoData) saveProfile(user, geoData, zone);
   }, [user?.id, geoData, zone]);
@@ -90,10 +85,27 @@ async function saveProfile(user, geoData, zone) {
 }
 
 function PlannerRouter() {
-  const { step } = usePlanner();
-  if (step === 0) return <LocationSelect />;
-  if (step === 1) return <ZoneConfirm />;
+  const { step, curriculum } = usePlanner();
+
+  // Step 0 — curriculum select (new entry point)
+  if (step === 0) return <CurriculumSelect />;
+
+  // Step 1 — location (Cambridge only; non-Cambridge jump straight to step 2)
+  if (step === 1) {
+    if (curriculum === 'cambridge') return <LocationSelect />;
+    // Safety fallback: non-Cambridge curricula that somehow land on step 1
+    return <SubjectSelect />;
+  }
+
+  // Step 1b — zone confirm (Cambridge only, injected inside LocationSelect flow)
+  // ZoneConfirm is reached via step 1 sub-navigation in LocationSelect → setStep(1b).
+  // We use step === 'zone' as a sentinel to avoid colliding with the numeric steps.
+  if (step === 'zone') return <ZoneConfirm />;
+
+  // Step 2 — subject select
   if (step === 2) return <SubjectSelect />;
+
+  // Step 3 — calendar
   return <CalendarView />;
 }
 
@@ -109,7 +121,6 @@ function PlannerApp() {
   );
 }
 
-// ── Top-level router — legal pages need no auth/planner state ────────────
 export default function App() {
   const path = window.location.pathname;
   if (path === '/privacy') return (

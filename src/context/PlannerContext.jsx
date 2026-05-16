@@ -82,6 +82,7 @@ export function PlannerProvider({ children }) {
   const [step,          setStep]          = useState(initial?.step          ?? 0);
   const [country,       setCountry]       = useState(initial?.country       ?? null);
   const [zone,          setZone]          = useState(initial?.zone          ?? null);
+  const [curriculum,    setCurriculum]    = useState(initial?.curriculum    ?? null);
   const [selectedCodes, setSelectedCodes] = useState(
     initial?.selectedCodes ? new Set(initial.selectedCodes) : new Set()
   );
@@ -98,7 +99,7 @@ export function PlannerProvider({ children }) {
 
   // ── Derive serialisable snapshot ─────────────────────────────────────────
   function snapshot() {
-    return { step, country, zone, selectedCodes: [...selectedCodes], events };
+    return { step, country, zone, curriculum, selectedCodes: [...selectedCodes], events };
   }
 
   // ── Persist on every state change ────────────────────────────────────────
@@ -109,7 +110,7 @@ export function PlannerProvider({ children }) {
     } else {
       writeSS(snap);    // guest: sessionStorage only
     }
-  }, [step, country, zone, selectedCodes, events, authUserId]);
+  }, [step, country, zone, curriculum, selectedCodes, events, authUserId]);
 
   // ── On sign-in: migrate guest sessionStorage → localStorage ──────────────
   useEffect(() => {
@@ -126,6 +127,7 @@ export function PlannerProvider({ children }) {
       const usedGuest = !lsData ||
         new Date(guestData.savedAt || 0) > new Date(lsData.savedAt || 0);
       if (usedGuest) {
+        if (guestData.curriculum)     setCurriculum(guestData.curriculum);
         if (guestData.zone)           setZone(guestData.zone);
         if (guestData.country)        setCountry(guestData.country);
         if (guestData.selectedCodes)  setSelectedCodes(new Set(guestData.selectedCodes));
@@ -147,6 +149,7 @@ export function PlannerProvider({ children }) {
       const localTs = new Date(readLS()?.savedAt || 0).getTime();
 
       if (cloudTs > localTs) {
+        if (data.curriculum !== undefined) setCurriculum(data.curriculum);
         if (data.zone !== undefined)   setZone(data.zone);
         if (data.country !== undefined) setCountry(data.country);
         if (data.selected_codes)       setSelectedCodes(new Set(data.selected_codes));
@@ -166,7 +169,7 @@ export function PlannerProvider({ children }) {
       try {
         await supabase.from('planners').upsert({
           user_id:        userId,
-          zone, country,
+          zone, country, curriculum,
           selected_codes: [...selectedCodes],
           events,
           updated_at:     new Date().toISOString(),
@@ -177,6 +180,7 @@ export function PlannerProvider({ children }) {
   }
 
   const value = {
+    curriculum, setCurriculum,
     step, setStep,
     country, setCountry,
     zone, setZone,

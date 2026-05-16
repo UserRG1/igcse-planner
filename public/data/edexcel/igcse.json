@@ -1,0 +1,303 @@
+{
+  "curriculum": "edexcel",
+  "qualification": "igcse",
+  "label": "Edexcel International GCSE",
+  "session": "Summer 2026",
+  "source": "Pearson Edexcel int-gcse-summer-2026-final.pdf",
+  "note": "Single global timetable — no zone system",
+  "categories": [
+    {
+      "id": "sciences",
+      "name": "Sciences",
+      "subjects": [
+        {
+          "id": "4bi1", "name": "Biology", "code": "4BI1",
+          "papers": [
+            { "code": "4BI1/1", "name": "Paper 1", "date": "2026-05-12", "sess": "PM", "dur": "2h", "v": 0 },
+            { "code": "4BI1/2", "name": "Paper 2", "date": "2026-06-08", "sess": "AM", "dur": "1h 15m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4ch1", "name": "Chemistry", "code": "4CH1",
+          "papers": [
+            { "code": "4CH1/1", "name": "Paper 1", "date": "2026-05-18", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "4CH1/2", "name": "Paper 2", "date": "2026-06-12", "sess": "AM", "dur": "1h 15m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4ph1", "name": "Physics", "code": "4PH1",
+          "papers": [
+            { "code": "4PH1/1", "name": "Paper 1", "date": "2026-06-02", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "4PH1/2", "name": "Paper 2", "date": "2026-06-15", "sess": "AM", "dur": "1h 15m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4hb1", "name": "Human Biology", "code": "4HB1",
+          "papers": [
+            { "code": "4HB1/1", "name": "Paper 1", "date": "2026-05-08", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "4HB1/2", "name": "Paper 2", "date": "2026-06-09", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4sd0", "name": "Science (Double Award)", "code": "4SD0",
+          "papers": [
+            { "code": "4SD0/B1", "name": "Biology Paper", "date": "2026-05-12", "sess": "PM", "dur": "1h 10m", "v": 0 },
+            { "code": "4SD0/C1", "name": "Chemistry Paper", "date": "2026-05-18", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "4SD0/P1", "name": "Physics Paper", "date": "2026-06-02", "sess": "AM", "dur": "1h 10m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4ss0", "name": "Science (Single Award)", "code": "4SS0",
+          "papers": [
+            { "code": "4SS0/B1", "name": "Biology Paper", "date": "2026-06-08", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "4SS0/C1", "name": "Chemistry Paper", "date": "2026-06-12", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "4SS0/P1", "name": "Physics Paper", "date": "2026-06-15", "sess": "AM", "dur": "1h 10m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "subjects": [
+        {
+          "id": "4ma1", "name": "Mathematics A (Linear)", "code": "4MA1",
+          "papers": [
+            { "code": "4MA1/1F", "name": "Paper 1F — Foundation", "date": "2026-05-14", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "4MA1/1H", "name": "Paper 1H — Higher", "date": "2026-05-14", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "4MA1/2F", "name": "Paper 2F — Foundation", "date": "2026-06-03", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "4MA1/2H", "name": "Paper 2H — Higher", "date": "2026-06-03", "sess": "AM", "dur": "2h", "v": 0 }
+          ]
+        },
+        {
+          "id": "4mb1", "name": "Mathematics B", "code": "4MB1",
+          "papers": [
+            { "code": "4MB1/01", "name": "Paper 1", "date": "2026-05-13", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "4MB1/02", "name": "Paper 2", "date": "2026-06-10", "sess": "AM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4pm1", "name": "Further Pure Mathematics", "code": "4PM1",
+          "papers": [
+            { "code": "4PM1/01", "name": "Paper 1", "date": "2026-05-19", "sess": "PM", "dur": "2h", "v": 0 },
+            { "code": "4PM1/02", "name": "Paper 2", "date": "2026-06-04", "sess": "PM", "dur": "2h", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "english",
+      "name": "English",
+      "subjects": [
+        {
+          "id": "4ea1", "name": "English Language A", "code": "4EA1",
+          "papers": [
+            { "code": "4EA1/01", "name": "Paper 1", "date": "2026-05-21", "sess": "AM", "dur": "2h 15m", "v": 0 },
+            { "code": "4EA1/02", "name": "Paper 2", "date": "2026-06-05", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4eb1", "name": "English Language B", "code": "4EB1",
+          "papers": [
+            { "code": "4EB1/01", "name": "Paper 1", "date": "2026-05-21", "sess": "AM", "dur": "3h", "v": 0 }
+          ]
+        },
+        {
+          "id": "4et1", "name": "English Literature", "code": "4ET1",
+          "papers": [
+            { "code": "4ET1/01", "name": "Paper 1", "date": "2026-05-11", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "4ET1/02", "name": "Paper 2", "date": "2026-05-19", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "name": "Languages",
+      "subjects": [
+        {
+          "id": "4fr1", "name": "French", "code": "4FR1",
+          "papers": [
+            { "code": "4FR1/L", "name": "Listening", "date": "2026-05-20", "sess": "AM", "dur": "35m", "v": 0 },
+            { "code": "4FR1/RW", "name": "Reading & Writing", "date": "2026-05-20", "sess": "AM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4gn1", "name": "German", "code": "4GN1",
+          "papers": [
+            { "code": "4GN1/L", "name": "Listening", "date": "2026-05-07", "sess": "PM", "dur": "35m", "v": 0 },
+            { "code": "4GN1/RW", "name": "Reading & Writing", "date": "2026-05-07", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4sp1", "name": "Spanish", "code": "4SP1",
+          "papers": [
+            { "code": "4SP1/L", "name": "Listening", "date": "2026-06-09", "sess": "AM", "dur": "35m", "v": 0 },
+            { "code": "4SP1/RW", "name": "Reading & Writing", "date": "2026-06-09", "sess": "AM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4aa1", "name": "Arabic", "code": "4AA1",
+          "papers": [
+            { "code": "4AA1/01", "name": "Paper 1", "date": "2026-05-07", "sess": "AM", "dur": "2h 15m", "v": 0 },
+            { "code": "4AA1/02", "name": "Paper 2", "date": "2026-05-19", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4cn1", "name": "Chinese", "code": "4CN1",
+          "papers": [
+            { "code": "4CN1/L", "name": "Listening", "date": "2026-06-02", "sess": "PM", "dur": "35m", "v": 0 },
+            { "code": "4CN1/RW", "name": "Reading & Writing", "date": "2026-06-02", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4gk1", "name": "Greek (First Language)", "code": "4GK1",
+          "papers": [
+            { "code": "4GK1/01", "name": "Paper 1", "date": "2026-05-14", "sess": "PM", "dur": "2h 15m", "v": 0 },
+            { "code": "4GK1/02", "name": "Paper 2", "date": "2026-06-01", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4sw1", "name": "Swahili", "code": "4SW1",
+          "papers": [
+            { "code": "4SW1/01", "name": "Paper 1", "date": "2026-05-28", "sess": "PM", "dur": "2h 15m", "v": 0 },
+            { "code": "4SW1/L",  "name": "Listening", "date": "2026-05-28", "sess": "PM", "dur": "35m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4ta1", "name": "Tamil", "code": "4TA1",
+          "papers": [
+            { "code": "4TA1/01", "name": "Paper 1", "date": "2026-05-29", "sess": "AM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4si1", "name": "Sinhala", "code": "4SI1",
+          "papers": [
+            { "code": "4SI1/01", "name": "Paper 1", "date": "2026-05-29", "sess": "AM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4ba0", "name": "Bangla", "code": "4BA0",
+          "papers": [
+            { "code": "4BA0/01", "name": "Paper 1", "date": "2026-05-15", "sess": "PM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4wes1", "name": "English as a Second Language (Modular)", "code": "4WES1",
+          "papers": [
+            { "code": "4WES1/R", "name": "Reading", "date": "2026-05-13", "sess": "PM", "dur": "1h 35m", "v": 0 },
+            { "code": "4WES1/L", "name": "Listening", "date": "2026-05-13", "sess": "PM", "dur": "40m", "v": 0 },
+            { "code": "4WES1/W", "name": "Writing", "date": "2026-06-01", "sess": "AM", "dur": "1h 5m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "humanities",
+      "name": "Humanities",
+      "subjects": [
+        {
+          "id": "4hi1", "name": "History (Linear)", "code": "4HI1",
+          "papers": [
+            { "code": "4HI1/1", "name": "Paper 1", "date": "2026-05-15", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "4HI1/2", "name": "Paper 2", "date": "2026-06-04", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4ge1", "name": "Geography (Linear)", "code": "4GE1",
+          "papers": [
+            { "code": "4GE1/1", "name": "Paper 1", "date": "2026-05-13", "sess": "AM", "dur": "1h 10m", "v": 0 },
+            { "code": "4GE1/2", "name": "Paper 2", "date": "2026-06-03", "sess": "PM", "dur": "1h 45m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4rs1", "name": "Religious Studies", "code": "4RS1",
+          "papers": [
+            { "code": "4RS1/1", "name": "Paper 1", "date": "2026-05-12", "sess": "AM", "dur": "1h 45m", "v": 0 },
+            { "code": "4RS1/2", "name": "Paper 2", "date": "2026-05-20", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4pa1", "name": "Pakistan Studies", "code": "4PA1",
+          "papers": [
+            { "code": "4PA1/01", "name": "Paper 1", "date": "2026-06-01", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "4PA1/02", "name": "Paper 2", "date": "2026-06-11", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4bn1", "name": "Bangladesh Studies", "code": "4BN1",
+          "papers": [
+            { "code": "4BN1/01", "name": "Paper 1", "date": "2026-05-29", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "4BN1/02", "name": "Paper 2", "date": "2026-06-10", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4is1", "name": "Islamic Studies", "code": "4IS1",
+          "papers": [
+            { "code": "4IS1/01", "name": "Paper 1", "date": "2026-06-02", "sess": "PM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4gl1", "name": "Global Citizenship", "code": "4GL1",
+          "papers": [
+            { "code": "4GL1/01", "name": "Paper 1", "date": "2026-06-11", "sess": "AM", "dur": "2h 30m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "business-economics",
+      "name": "Business & Economics",
+      "subjects": [
+        {
+          "id": "4bs1", "name": "Business", "code": "4BS1",
+          "papers": [
+            { "code": "4BS1/01", "name": "Paper 1", "date": "2026-05-11", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "4BS1/02", "name": "Paper 2", "date": "2026-05-21", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4ec1", "name": "Economics (Linear)", "code": "4EC1",
+          "papers": [
+            { "code": "4EC1/01", "name": "Paper 1", "date": "2026-05-08", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "4EC1/02", "name": "Paper 2", "date": "2026-05-22", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4ac1", "name": "Accounting (Linear)", "code": "4AC1",
+          "papers": [
+            { "code": "4AC1/01", "name": "Paper 1", "date": "2026-05-15", "sess": "PM", "dur": "2h", "v": 0 },
+            { "code": "4AC1/02", "name": "Paper 2", "date": "2026-06-08", "sess": "PM", "dur": "1h 15m", "v": 0 }
+          ]
+        },
+        {
+          "id": "4cm1", "name": "Commerce (Linear)", "code": "4CM1",
+          "papers": [
+            { "code": "4CM1/01", "name": "Paper 1", "date": "2026-05-18", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "4CM1/02", "name": "Paper 2", "date": "2026-06-05", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ict",
+      "name": "ICT & Computing",
+      "subjects": [
+        {
+          "id": "4cp0", "name": "Computer Science", "code": "4CP0",
+          "papers": [
+            { "code": "4CP0/01", "name": "Paper 1 (Written)", "date": "2026-05-08", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "4CP0/02", "name": "Paper 2 (Practical) — Window", "date": "2026-06-01", "sess": "Window", "dur": "3h", "v": 0 }
+          ]
+        },
+        {
+          "id": "4it1", "name": "ICT", "code": "4IT1",
+          "papers": [
+            { "code": "4IT1/01", "name": "Paper 1 (Written)", "date": "2026-05-07", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "4IT1/02", "name": "Paper 2 (Practical) — Window", "date": "2026-06-01", "sess": "Window", "dur": "3h", "v": 0 }
+          ]
+        }
+      ]
+    }
+  ]
+}

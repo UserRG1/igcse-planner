@@ -2,7 +2,7 @@
  * Step 2 — Calendar View
  */
 import { useState, useEffect, useRef } from 'react';
-import { dateKey, fmtDateLong, fmtDateShort, ZONE_INFO } from '../utils/timetable.js';
+import { dateKey, fmtDateLong, fmtDateShort, ZONE_INFO, getCalendarMonths, CURRICULUM_INFO } from '../utils/timetable.js';
 import { drawCalendarToCanvas } from '../utils/jpgExport.js';
 import { usePlanner } from '../context/PlannerContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
@@ -10,16 +10,12 @@ import AuthHeaderButton from '../components/AuthHeaderButton.jsx';
 import GuestExpiryPopup from '../components/GuestExpiryPopup.jsx';
 import Footer from '../components/Footer.jsx';
 
-const MONTHS = [
-  { y: 2026, m: 3, name: 'April 2026', id: 'c-apr' },
-  { y: 2026, m: 4, name: 'May 2026',   id: 'c-may' },
-  { y: 2026, m: 5, name: 'June 2026',  id: 'c-jun' },
-];
 const DAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 const STALE_DAYS = 5;
 
 export default function CalendarView() {
-  const { zone, events, setEvents, setStep, cloudSynced } = usePlanner();
+  const { zone, curriculum, events, setEvents, setStep, cloudSynced } = usePlanner();
+  const MONTHS = getCalendarMonths(curriculum);
   const { user, openAuth, isSupabaseEnabled, pendingExport, clearPendingExport } = useAuth();
 
   // After Google OAuth redirect, auto-open export if that's what triggered sign-in
@@ -195,8 +191,9 @@ export default function CalendarView() {
     setExportMsg('Drawing calendar…');
     setTimeout(() => {
       try {
-        const zoneLabel = ZONE_INFO[zone]?.label || `Zone ${zone}`;
-        const cv = drawCalendarToCanvas(events, zone, zoneLabel);
+        const zoneLabel    = ZONE_INFO[zone]?.label || '';
+        const currShortLbl = (CURRICULUM_INFO[curriculum] || {}).shortLabel || 'Exam Planner';
+        const cv = drawCalendarToCanvas(events, MONTHS, currShortLbl, zoneLabel);
         cv.toBlob(blob => {
           if (!blob) { setExportMsg('Failed — try PDF.'); return; }
           const a = document.createElement('a');
@@ -309,16 +306,18 @@ export default function CalendarView() {
         {/* Header */}
         <div className="hdr">
           <div>
-            <p className="title">April – June 2026</p>
+            <p className="title">{MONTHS[0].name.split(" ")[0]}{MONTHS.length > 1 ? ` – ${MONTHS[MONTHS.length-1].name.split(" ")[0]}` : ""} 2026</p>
             <p className="sub">
-              IGCSE planner · {zoneInfo ? `${zoneInfo.label} (${zoneInfo.regions})` : `Zone ${zone}`} · tap any day to add an event · auto-saves
+              {(CURRICULUM_INFO[curriculum] || {}).shortLabel || 'Planner'}{zoneInfo ? ` · ${zoneInfo.label}` : ''} · tap any day to add an event · auto-saves
             </p>
           </div>
           <div className="cal-hdr-right">
             <span className="badge exam">Exam</span>
             <span className="badge study">Study</span>
             <button className="link-btn" onClick={() => setStep(2)}>← Subjects</button>
-            <button className="link-btn" onClick={() => setStep(1)}>← Zone</button>
+            {curriculum === 'cambridge' && (
+              <button className="link-btn" onClick={() => setStep('zone')}>← Zone</button>
+            )}
             <button className="exp-btn" onClick={handleExportClick}>Export</button>
             <AuthHeaderButton />
             {!isMobile && (

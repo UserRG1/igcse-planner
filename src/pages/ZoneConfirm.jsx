@@ -25,7 +25,8 @@ export default function ZoneConfirm() {
   }
 
   function handleBack() {
-    setStep(0);
+    // step 1 = LocationSelect for Cambridge
+    setStep(1);
   }
 
   const zoneLabel = confirmedZone === 'uk' ? 'UK' : `Zone ${confirmedZone}`;

@@ -1,0 +1,232 @@
+{
+  "curriculum": "edexcel",
+  "qualification": "ial",
+  "label": "Edexcel International Advanced Levels",
+  "session": "Summer 2026",
+  "source": "Pearson Edexcel ial-summer-2026-final.pdf",
+  "note": "Single global timetable — no zone system",
+  "categories": [
+    {
+      "id": "sciences",
+      "name": "Sciences",
+      "subjects": [
+        {
+          "id": "wbi", "name": "Biology", "code": "WBI",
+          "papers": [
+            { "code": "WBI11/01", "name": "Unit 1 — Lifestyle, Transport, Genes & Health", "date": "2026-05-05", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WBI12/01", "name": "Unit 2 — Development, Plants & Environment", "date": "2026-05-15", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WBI13/01", "name": "Unit 3 — Practical Skills in Biology I",     "date": "2026-05-20", "sess": "PM", "dur": "1h 20m", "v": 0 },
+            { "code": "WBI14/01", "name": "Unit 4 — Energy, Environment, Microbiology & Immunity", "date": "2026-05-28", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WBI15/01", "name": "Unit 5 — Respiration, Internal Environment, Coordination & Gene Technology", "date": "2026-06-04", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WBI16/01", "name": "Unit 6 — Practical Skills in Biology II",    "date": "2026-06-12", "sess": "AM", "dur": "1h 20m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wch", "name": "Chemistry", "code": "WCH",
+          "papers": [
+            { "code": "WCH11/01", "name": "Unit 1 — The Core Principles of Chemistry", "date": "2026-05-06", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WCH12/01", "name": "Unit 2 — Application of Core Principles of Chemistry", "date": "2026-05-11", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WCH13/01", "name": "Unit 3 — Practical Skills in Chemistry I",  "date": "2026-05-21", "sess": "AM", "dur": "1h 20m", "v": 0 },
+            { "code": "WCH14/01", "name": "Unit 4 — Rates, Equilibria and Further Organic Chemistry", "date": "2026-05-29", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WCH15/01", "name": "Unit 5 — Transition Metals and Organic Nitrogen Chemistry", "date": "2026-06-02", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WCH16/01", "name": "Unit 6 — Practical Skills in Chemistry II", "date": "2026-06-08", "sess": "AM", "dur": "1h 20m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wph", "name": "Physics", "code": "WPH",
+          "papers": [
+            { "code": "WPH11/01", "name": "Unit 1 — Mechanics & Materials",              "date": "2026-05-08", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WPH12/01", "name": "Unit 2 — Waves & Electricity",                "date": "2026-05-13", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WPH13/01", "name": "Unit 3 — Practical Skills in Physics I",      "date": "2026-05-18", "sess": "AM", "dur": "1h 20m", "v": 0 },
+            { "code": "WPH14/01", "name": "Unit 4 — Further Mechanics, Fields & Particles", "date": "2026-06-01", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WPH15/01", "name": "Unit 5 — Thermodynamics, Radiation, Oscillations & Cosmology", "date": "2026-06-05", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WPH16/01", "name": "Unit 6 — Practical Skills in Physics II",     "date": "2026-06-10", "sess": "AM", "dur": "1h 20m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "subjects": [
+        {
+          "id": "wma", "name": "Mathematics — Pure", "code": "WMA",
+          "papers": [
+            { "code": "WMA11/01", "name": "Pure Mathematics P1", "date": "2026-05-08", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WMA12/01", "name": "Pure Mathematics P2", "date": "2026-05-12", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WMA13/01", "name": "Pure Mathematics P3", "date": "2026-06-02", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WMA14/01", "name": "Pure Mathematics P4", "date": "2026-06-09", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wfm", "name": "Mathematics — Further Pure", "code": "WFM",
+          "papers": [
+            { "code": "WFM01/01", "name": "Further Pure Mathematics FP1", "date": "2026-05-21", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WFM02/01", "name": "Further Pure Mathematics FP2", "date": "2026-06-01", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WFM03/01", "name": "Further Pure Mathematics FP3", "date": "2026-06-10", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wme", "name": "Mathematics — Mechanics", "code": "WME",
+          "papers": [
+            { "code": "WME01/01", "name": "Mechanics M1", "date": "2026-05-07", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WME02/01", "name": "Mechanics M2", "date": "2026-06-03", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WME03/01", "name": "Mechanics M3", "date": "2026-06-11", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wst", "name": "Mathematics — Statistics", "code": "WST",
+          "papers": [
+            { "code": "WST01/01", "name": "Statistics S1", "date": "2026-05-19", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WST02/01", "name": "Statistics S2", "date": "2026-06-05", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WST03/01", "name": "Statistics S3", "date": "2026-06-12", "sess": "PM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wdm", "name": "Mathematics — Decision", "code": "WDM",
+          "papers": [
+            { "code": "WDM11/01", "name": "Decision Mathematics D1", "date": "2026-05-14", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "humanities",
+      "name": "Humanities & Social Sciences",
+      "subjects": [
+        {
+          "id": "wec", "name": "Economics", "code": "WEC",
+          "papers": [
+            { "code": "WEC11/01", "name": "Unit 1 — Markets in Action",                        "date": "2026-05-07", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WEC12/01", "name": "Unit 2 — Macroeconomic Performance & Policy",       "date": "2026-05-13", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WEC13/01", "name": "Unit 3 — Business Behaviour & Labour Market",       "date": "2026-05-21", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "WEC14/01", "name": "Unit 4 — The Global Economy",                       "date": "2026-06-04", "sess": "PM", "dur": "2h", "v": 0 }
+          ]
+        },
+        {
+          "id": "wbs", "name": "Business", "code": "WBS",
+          "papers": [
+            { "code": "WBS11/01", "name": "Unit 1 — Marketing & People",                      "date": "2026-05-06", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WBS12/01", "name": "Unit 2 — Managing Business Activities",            "date": "2026-05-11", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WBS13/01", "name": "Unit 3 — Business Decisions & Strategy",           "date": "2026-05-29", "sess": "PM", "dur": "2h", "v": 0 },
+            { "code": "WBS14/01", "name": "Unit 4 — Global Business",                         "date": "2026-06-09", "sess": "PM", "dur": "2h", "v": 0 }
+          ]
+        },
+        {
+          "id": "whi", "name": "History", "code": "WHI",
+          "papers": [
+            { "code": "WHI01/01", "name": "Unit 1 — Source Paper",          "date": "2026-05-14", "sess": "PM", "dur": "1h 20m", "v": 0 },
+            { "code": "WHI02/01", "name": "Unit 2 — Depth Study",           "date": "2026-05-20", "sess": "AM", "dur": "1h 20m", "v": 0 },
+            { "code": "WHI03/01", "name": "Unit 3 — Essay Paper",           "date": "2026-06-02", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WHI04/01", "name": "Unit 4 — Interpretations Paper", "date": "2026-06-11", "sess": "AM", "dur": "1h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wge", "name": "Geography", "code": "WGE",
+          "papers": [
+            { "code": "WGE01/01", "name": "Unit 1 — Global Challenges",             "date": "2026-05-12", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WGE02/01", "name": "Unit 2 — Geographical Investigations",  "date": "2026-05-18", "sess": "PM", "dur": "1h 30m", "v": 0 },
+            { "code": "WGE03/01", "name": "Unit 3 — Contested Planet",              "date": "2026-06-03", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "WGE04/01", "name": "Unit 4 — Geographical Research",         "date": "2026-06-08", "sess": "PM", "dur": "2h", "v": 0 }
+          ]
+        },
+        {
+          "id": "wps", "name": "Psychology", "code": "WPS",
+          "papers": [
+            { "code": "WPS01/01", "name": "Unit 1 — Social Psychology & Cognitive Psychology",        "date": "2026-05-05", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WPS02/01", "name": "Unit 2 — Biological Psychology & Learning",               "date": "2026-05-15", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WPS03/01", "name": "Unit 3 — Child Psychology & Psychopathology",             "date": "2026-05-22", "sess": "PM", "dur": "2h", "v": 0 },
+            { "code": "WPS04/01", "name": "Unit 4 — Clinical Psychology & Psychological Skills",     "date": "2026-06-08", "sess": "PM", "dur": "2h", "v": 0 }
+          ]
+        },
+        {
+          "id": "wac", "name": "Accounting", "code": "WAC",
+          "papers": [
+            { "code": "WAC11/01", "name": "Unit 1 — The Accounting System & Costing",     "date": "2026-05-05", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "WAC12/01", "name": "Unit 2 — Corporate & Management Accounting",   "date": "2026-05-20", "sess": "AM", "dur": "2h", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "english",
+      "name": "English",
+      "subjects": [
+        {
+          "id": "wen", "name": "English Language", "code": "WEN",
+          "papers": [
+            { "code": "WEN01/01", "name": "Unit 1 — Spoken Language", "date": "2026-05-11", "sess": "PM", "dur": "2h", "v": 0 },
+            { "code": "WEN02/01", "name": "Unit 2 — Writing", "date": "2026-05-19", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "WEN03/01", "name": "Unit 3 — The Language of Literature", "date": "2026-06-01", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "WEN04/01", "name": "Unit 4 — Investigating Language", "date": "2026-06-10", "sess": "PM", "dur": "2h", "v": 0 }
+          ]
+        },
+        {
+          "id": "wet", "name": "English Literature", "code": "WET",
+          "papers": [
+            { "code": "WET01/01", "name": "Unit 1 — Poetry & Drama (Pre-1900)", "date": "2026-05-08", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "WET02/01", "name": "Unit 2 — Prose (Post-1900)",         "date": "2026-05-14", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "WET03/01", "name": "Unit 3 — Poetry (Post-1900)",        "date": "2026-05-29", "sess": "AM", "dur": "2h", "v": 0 },
+            { "code": "WET04/01", "name": "Unit 4 — Reflections in Literature", "date": "2026-06-05", "sess": "AM", "dur": "2h", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "name": "Languages",
+      "subjects": [
+        {
+          "id": "wfr", "name": "French", "code": "WFR",
+          "papers": [
+            { "code": "WFR02/01", "name": "Unit 2 — Reading & Writing",  "date": "2026-05-15", "sess": "AM", "dur": "2h 30m", "v": 0 },
+            { "code": "WFR04/01", "name": "Unit 4 — Reading & Writing",  "date": "2026-06-04", "sess": "AM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wgn", "name": "German", "code": "WGN",
+          "papers": [
+            { "code": "WGN02/01", "name": "Unit 2 — Reading & Writing", "date": "2026-05-22", "sess": "PM", "dur": "2h 30m", "v": 0 },
+            { "code": "WGN04/01", "name": "Unit 4 — Reading & Writing", "date": "2026-06-11", "sess": "AM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wsp", "name": "Spanish", "code": "WSP",
+          "papers": [
+            { "code": "WSP02/01", "name": "Unit 2 — Reading & Writing", "date": "2026-05-13", "sess": "AM", "dur": "2h 30m", "v": 0 },
+            { "code": "WSP04/01", "name": "Unit 4 — Reading & Writing", "date": "2026-06-03", "sess": "PM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "waa", "name": "Arabic", "code": "WAA",
+          "papers": [
+            { "code": "WAA01/01", "name": "Unit 1 — Reading & Writing", "date": "2026-05-06", "sess": "AM", "dur": "2h 30m", "v": 0 },
+            { "code": "WAA02/01", "name": "Unit 2 — Reading & Writing", "date": "2026-06-01", "sess": "PM", "dur": "2h 30m", "v": 0 }
+          ]
+        },
+        {
+          "id": "wgk", "name": "Greek", "code": "WGK",
+          "papers": [
+            { "code": "WGK01/01", "name": "Unit 1 — Reading & Writing", "date": "2026-05-12", "sess": "AM", "dur": "2h 30m", "v": 0 },
+            { "code": "WGK02/01", "name": "Unit 2 — Reading & Writing", "date": "2026-05-19", "sess": "PM", "dur": "2h 30m", "v": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ict",
+      "name": "ICT",
+      "subjects": [
+        {
+          "id": "wit", "name": "Information Technology", "code": "WIT",
+          "papers": [
+            { "code": "WIT11/01", "name": "Unit 1 — Practical Problem Solving in ICT", "date": "2026-05-07", "sess": "PM", "dur": "2h", "v": 0 },
+            { "code": "WIT12/01", "name": "Unit 2 — Communications & Organisations",  "date": "2026-05-18", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WIT13/01", "name": "Unit 3 — The Knowledge Worker",             "date": "2026-05-28", "sess": "AM", "dur": "1h 30m", "v": 0 },
+            { "code": "WIT14/01", "name": "Unit 4 — Working to a Brief",               "date": "2026-06-09", "sess": "PM", "dur": "2h", "v": 0 }
+          ]
+        }
+      ]
+    }
+  ]
+}
