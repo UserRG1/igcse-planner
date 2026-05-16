@@ -1,10 +1,10 @@
 {
   "curriculum": "edexcel",
   "qualification": "gcse",
-  "label": "Edexcel GCSE (UK)",
+  "label": "Edexcel GCSE",
   "session": "Summer 2026",
   "source": "Pearson Edexcel gcse-summer-2026-final.pdf",
-  "note": "Codes begin with 1. Same timetable for UK and international centres. Different qualification from International GCSE (codes begin with 4).,
+  "note": "Codes begin with 1. Same timetable for UK and international centres. Different qualification from International GCSE (codes begin with 4).",
   "categories": [
     {
       "id": "sciences",
